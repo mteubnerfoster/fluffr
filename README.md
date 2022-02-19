@@ -48,11 +48,11 @@ This application was created using:
 - [Google Maps Javascript API](https://developers.google.com/maps/documentation/javascript/overview)
 
 ## Examples
-Check out [project 3 this is not a live link](https://) <br>
+Check out [project 3 - not a live link](https://) <br>
 Photos of the homepage: <br>
-![Joint Effort Homepage 21 or over](photolink) <br>
+![Photo 1 Description](photolink) <br>
 
-![Joint Effort Homepage](photolink) <br>
+![Photo 2 Description](photolink) <br>
 
 ## Authors
 - [Kevin Ang](https://www.github.com/cosdaman)
