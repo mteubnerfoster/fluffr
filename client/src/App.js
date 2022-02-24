@@ -1,14 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
+import NavBar from './components/NavBar';
+import Footer from './components/Footer';
+import {Profile} from './components/Profile';
+import Home from './components/Home';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-      </header>
-      <h1>Hello!</h1>
-    </div>
+    <Router>
+      <div className="App">
+       
+        <h1>Fluffr - The Dating App for Pets!</h1>
+        
+          <NavBar />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/profile" component={Profile} />
+
+
+          </Switch>
+
+          <Footer />
+
+        
+      </div>
+    </Router>
   );
 }
 
