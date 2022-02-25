@@ -4,6 +4,7 @@ import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import { Profile } from './components/Profile';
 import Home from './components/Home';
+import LandingPage from './components/LandingPage';
 
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 
@@ -23,6 +24,7 @@ function App() {
           <Switch>
             <Route exact path='/' component={Home} />
             <Route exact path='/profile' component={Profile} />
+            <Route exact path='/landingpage' component={LandingPage} />
           </Switch>
           <Footer />
         </div>
