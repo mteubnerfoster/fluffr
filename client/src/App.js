@@ -18,8 +18,8 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div className='App'>
-          <h1>Fluffr - The Dating App for Pets!</h1>
-          <p>Find your furever friend</p>
+          <h1>Fluffr</h1>
+          <p>Find your Furever Friend</p>
           <NavBar />
           <Switch>
             <Route exact path='/' component={Home} />
