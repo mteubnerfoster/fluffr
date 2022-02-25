@@ -2,7 +2,7 @@ import './App.css';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
-import {Profile} from './components/Profile';
+import { Profile } from './components/Profile';
 import Home from './components/Home';
 
 
@@ -15,25 +15,19 @@ const client = new ApolloClient({
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-       
-        <h1>Fluffr - The Dating App for Pets!</h1>
-        
+    <ApolloProvider client={client}>
+      <Router>
+        <div className="App">
+          <h1>Fluffr - The Dating App for Pets!</h1>
           <NavBar />
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/profile" component={Profile} />
-
-
           </Switch>
-
           <Footer />
-
-        
-      </div>
-    </Router>
-
+        </div>
+      </Router>
+    </ApolloProvider>
   );
 }
 
