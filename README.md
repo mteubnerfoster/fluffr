@@ -1,5 +1,5 @@
-# project-3-wheeee
-Project 3 for U of W Coding Boot Camp - this is placeholder for now.
+# Fluffr: Find Your Furever Friend
+Project 3 for U of W Coding Boot Camp
 
 ## Table of Contents
 - [Getting Started](#getting_started)
@@ -11,13 +11,10 @@ Project 3 for U of W Coding Boot Camp - this is placeholder for now.
 - [License](#license)
 
 ## Getting Started
-Users can utilize any common internet browser with Javascript enabled to access the (project 3) site.
+Users can utilize any common internet browser with Javascript enabled to access the Fluffr site.
 
 ## About
-This app will lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
-numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
-optio, eaque rerum.
+This app will assist users in finding their perfect rescue pet, in a similar style to the popular dating app Tindr.
 
 ## User Story
 ```
@@ -44,11 +41,11 @@ This application was created using:
 - [express-session](https://www.npmjs.com/package/express-session)
 - [MySql2](https://www.npmjs.com/package/mysql2)
 - [Sequelize](https://www.npmjs.com/package/sequelize)
-- [Yelp Fusion API](https://www.npmjs.com/package/yelp-fusion)
-- [Google Maps Javascript API](https://developers.google.com/maps/documentation/javascript/overview)
+- [Petfinder API](https://www.npmjs.com/package/yelp-fusion)
+
 
 ## Examples
-Check out [project 3 - not a live link](https://) <br>
+Check out [Fluffr - not a live link](https://) <br>
 Photos of the homepage: <br>
 ![Photo 1 Description](photolink) <br>
 
