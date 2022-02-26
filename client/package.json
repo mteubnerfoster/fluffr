@@ -12,8 +12,13 @@
     "jwt-decode": "^3.1.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-40.0.1.tar.gz",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.1",
+    "react-native-web": "~0.13.12",
+    "react-spring": "^8.0.27",
+    "react-scripts": "^5.0.0",
+    "react-tinder-card": "^1.4.5",
+    "styled-components": "^5.3.3",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
