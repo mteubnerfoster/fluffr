@@ -1,6 +1,6 @@
 import "./style.css";
 import { Link } from "react-router-dom";
-import logo from "../../data/t.png";
+import logo from "../../data/fluffr-logo-circle.png";
 
 const LandingPage = () => {
 
