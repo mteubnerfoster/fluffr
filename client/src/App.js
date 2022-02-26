@@ -1,6 +1,5 @@
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Footer from "./components/Footer";
 import { Profile } from "./components/Profile";
 import Home from "./components/Home";
 import Login from "./components/Login";
@@ -24,7 +23,6 @@ function App() {
             <Route exact path="/profile" component={Profile} />
             <Route exact path="/login" component={Login} />
           </Switch>
-          <Footer />
         </div>
       </Router>
     </ApolloProvider>

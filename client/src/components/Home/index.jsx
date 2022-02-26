@@ -1,6 +1,7 @@
 import React from "react";
 import "./style.css";
 import NavBar from "../NavBar";
+import Footer from '../Footer'
 
 const Home = () => {
   return (
@@ -9,6 +10,7 @@ const Home = () => {
       <p>Find your Furever Friend</p>
       <NavBar />
       <div>Home</div>
+      <Footer />
     </>
   );
 };

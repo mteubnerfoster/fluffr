@@ -5,7 +5,7 @@ import logo from "../../data/t.png";
 const LandingPage = () => {
 
   return (
-    <section className="container landingPageContainer">
+    <section className="container d-flex flex-column justify-content-around landingPageContainer">
       <div className="lpLogo">
         <img src={logo} alt="fluffr logo" />
       </div>
