@@ -17,8 +17,26 @@ const userSchema = new Schema({
     password: {
         type: String,
         required: true,
-        minlength: 5,
+        minLength: 5,
     },
+    zipCode: {
+        type: String,
+        minLength: 5,
+        maxLength: 10,
+    },
+    searchDistance: {
+        type: Number,
+        min: [0, 'must be non negative number']
+    },
+    favoritedPets: [{
+        type: Number,
+        ref: 'Pet'
+    }],
+    petSearchHistory: [{
+        type: Number,
+        ref: 'Pet'
+    }]
+
 });
 
 userSchema.pre('save', async function (next) {
