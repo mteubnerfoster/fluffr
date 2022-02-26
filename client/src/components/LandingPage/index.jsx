@@ -14,7 +14,7 @@ const LandingPage = () => {
       </div>
       <div className="lpStart">
         <Link to="/home" className="getStarted">
-          <h2>Get Started</h2>
+          <h2>Get Started!</h2>
         </Link>
       </div>
     </section>
