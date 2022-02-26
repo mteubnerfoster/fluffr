@@ -11,6 +11,12 @@
   background-color: pink;
 }
 
+.landingPageContainer .lpName {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  display: inline;
+}
+
 .landingPageContainer .getStarted {
   text-decoration: none;
   color: black;
