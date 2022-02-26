@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import { Profile } from './components/Profile';
 import Home from './components/Home';
 import Login from './components/Login';
+import LandingPage from './components/LandingPage';
 
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 
@@ -18,13 +19,14 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div className='App'>
-          <h1>Fluffr - The Dating App for Pets!</h1>
-          <p>Find your furever friend</p>
+          <h1>Fluffr</h1>
+          <p>Find your Furever Friend</p>
           <NavBar />
           <Switch>
             <Route exact path='/' component={Home} />
             <Route exact path='/profile' component={Profile} />
             <Route exact path='/login' component={Login} />
+            <Route exact path='/landingpage' component={LandingPage} />
           </Switch>
           <Footer />
         </div>
