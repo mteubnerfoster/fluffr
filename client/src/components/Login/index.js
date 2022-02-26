@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
 
+import { useMutation } from '@apollo/client';
+
+import { ADD_USER, LOGIN_USER } from '../../utils/mutations';
+
+import Auth from '../../utils/auth';
+
 const Login = () => {
   const [formState, setFormState] = useState({
     login: true,
@@ -8,7 +14,11 @@ const Login = () => {
     username: '',
   });
 
-  const handleSubmit = (e) => {
+  const [addUser, { errorAdd, dataAdd }] = useMutation(ADD_USER);
+  const [login, { errorLog, dataLog }] = useMutation(LOGIN_USER);
+
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
 
@@ -23,6 +33,15 @@ const Login = () => {
         password: formState.password,
       };
       console.log('Call login mutation with ', payload);
+      try {
+        const { data } = await login({
+          variables: { ...payload }
+        });
+        console.log(data)
+        Auth.login(data.login.token);
+      } catch (e) {
+        console.error(e);
+      }
     } else {
       // call the signup Mutation
       const payload = {
@@ -31,6 +50,15 @@ const Login = () => {
         email: formState.email,
       };
       console.log('Call signup mutation with ', payload);
+      try {
+        const { data } = await addUser({
+          variables: { ...payload }
+        });
+        console.log(data)
+        Auth.login(data.addUser.token);
+      } catch (e) {
+        console.error(e);
+      }
     }
   };
 
