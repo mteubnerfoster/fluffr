@@ -69,6 +69,7 @@ const Login = () => {
                   name='password'
                   id='password-login'
                   value={formState.password}
+                  minLength='8'
                   onChange={(e) =>
                     setFormState({
                       ...formState,
