@@ -19,7 +19,6 @@ const Login = () => {
   const [addUser, { errorAdd, dataAdd }] = useMutation(ADD_USER);
   const [login, { errorLog, dataLog }] = useMutation(LOGIN_USER);
 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
@@ -37,9 +36,9 @@ const Login = () => {
       console.log('Call login mutation with ', payload);
       try {
         const { data } = await login({
-          variables: { ...payload }
+          variables: { ...payload },
         });
-        console.log(data)
+        console.log(data);
         Auth.login(data.login.token);
       } catch (e) {
         console.error(e);
@@ -54,9 +53,9 @@ const Login = () => {
       console.log('Call signup mutation with ', payload);
       try {
         const { data } = await addUser({
-          variables: { ...payload }
+          variables: { ...payload },
         });
-        console.log(data)
+        console.log(data);
         Auth.login(data.addUser.token);
       } catch (e) {
         console.error(e);
@@ -104,49 +103,6 @@ const Login = () => {
                     id='password-login'
                     value={formState.password}
                     minLength='8'
-                    onChange={(e) =>
-                      setFormState({
-                        ...formState,
-                        password: e.target.value,
-                      })
-                    }
-                  />
-                  {!formState.login && (
-                    <div id='passwordHelp' className='form-text'>
-                      Password must be 8 characters long.
-                    </div>
-                  )}
-                </div>
-                {!formState.login && (
-                  <div className='mb-3'>
-                    <label htmlFor='email-signup' className='form-label'>
-                      Email address
-                    </label>
-                    <input
-                      type='text'
-                      className='form-control'
-                      name='username'
-                      value={formState.username}
-                      id='username-login'
-                      onChange={(e) =>
-                        setFormState({
-                          ...formState,
-                          username: e.target.value,
-                        })
-                      }
-                    />
-                  </div>
-                )}
-                <div className='mb-3'>
-                  <label htmlFor='password-login' className='form-label'>
-                    {formState.login ? 'Password' : 'Create Password'}
-                  </label>
-                  <input
-                    type='password'
-                    className='form-control'
-                    name='password'
-                    id='password-login'
-                    value={formState.password}
                     onChange={(e) =>
                       setFormState({
                         ...formState,
