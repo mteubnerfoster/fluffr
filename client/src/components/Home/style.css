@@ -1,0 +1,10 @@
+body {
+    background-color: rgba(95, 7, 146, 0.575) !important;
+    opacity: 1;
+}
+
+Button {
+    display: inline-block !important;
+    align-items: center !important;
+    color: rgb(95, 7, 146) !important;
+}

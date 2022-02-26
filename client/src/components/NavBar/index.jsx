@@ -26,7 +26,7 @@ const NavBar = () => {
         <div className='logo'>
           <Link to='/'>
             <img
-              src={`${process.env.PUBLIC_URL}/logo192.png`}
+              src={`${process.env.PUBLIC_URL}/fluffr-logo-circle.png`}
               alt='brand'
               className='logo'
             />
