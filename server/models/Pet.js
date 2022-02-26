@@ -23,21 +23,17 @@ const petSchema = new Schema({
         type: String,
         required: true,
     },
+    breedType: {
+        type: String
+    },
     zipCode: {
         type: String,
         required: true,
         minLength: 0,
     },
-    contactInfo: {
+    linkToPet: {
         type: String,
         required: true,
-        minLength: 0
-    },
-    breedType: {
-        type: String
-    },
-    specialInfo: {
-        type: String,
     },
     photos: [{
         type: String,
