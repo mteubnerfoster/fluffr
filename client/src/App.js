@@ -1,7 +1,7 @@
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Profile } from "./components/Profile";
-import Home from "./components/Home";
+import Home from "./components/Home/tinderTest";
 import Login from "./components/Login";
 import LandingPage from "./components/LandingPage";
 
