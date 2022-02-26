@@ -1,24 +1,18 @@
 .landingPageContainer {
-  height: 500px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.lpStart {
-  border-radius: 25px;
-}
-
-.getStarted {
-  text-decoration: none;
-  color: black;
-}
-
-.getStarted:hover {
-  color: black;
-}
-
-.lpStart:hover {
-  cursor: pointer;
-  background-color: pink;
+  min-height: 800px;
+  .lpStart {
+    border-radius: 25px;
+    &:hover {
+      cursor: pointer;
+      background-color: pink;
+    }
+  }
+  
+  .getStarted {
+    text-decoration: none;
+    color: black;
+    &:hover {
+      color: black;
+    }
+  }
 }

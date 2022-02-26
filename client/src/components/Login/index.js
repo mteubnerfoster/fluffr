@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import NavBar from '../NavBar';
+import Footer from '../Footer';
 
 const Login = () => {
   const [formState, setFormState] = useState({
@@ -177,6 +178,7 @@ const Login = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 };

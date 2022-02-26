@@ -1,32 +1,22 @@
 .landingPageContainer {
-  height: 500px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  min-height: 800px;
 }
 
-.lpStart {
+.landingPageContainer .lpStart {
   border-radius: 25px;
 }
 
-.getStarted {
+.landingPageContainer .lpStart:hover {
+  cursor: pointer;
+  background-color: pink;
+}
+
+.landingPageContainer .getStarted {
   text-decoration: none;
   color: black;
 }
 
-.getStarted:hover {
+.landingPageContainer .getStarted:hover {
   color: black;
-}
-
-.lpStart:hover {
-  cursor: pointer;
-  background-color: pink;
 }
 /*# sourceMappingURL=style.css.map */
