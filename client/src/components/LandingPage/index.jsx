@@ -6,24 +6,8 @@ import heroVid from "../../data/dog-hero-video.mp4";
 const LandingPage = () => {
   return (
     <>
-      <section className="container d-flex flex-column justify-content-around landingPageContainer">
-        <video
-          autoPlay
-          loop
-          muted
-          style={{
-            position: "absolute",
-            width: "100%",
-            left: "50%",
-            top: "50%",
-            height: "100%",
-            objectFit: "cover",
-            transform: "translate(-50%, -50%",
-            zIndex: "-1",
-          }}
-        >
-          <source src={heroVid} type="video/mp4" />
-        </video>
+      <section className="container img-fluid d-flex flex-column justify-content-around landingPageContainer">
+        <video src={heroVid} autoPlay loop muted></video>
         <div className="lpLogo">
           <img className="img-fluid" src={logo} alt="fluffr logo" />
         </div>
