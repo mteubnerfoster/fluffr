@@ -19,11 +19,11 @@ const petSchema = new Schema({
         type: String,
         required: true,
     },
-    animalType: {
+    species: {
         type: String,
         required: true,
     },
-    breedType: {
+    breed: {
         type: String
     },
     location: {
@@ -44,7 +44,7 @@ const petSchema = new Schema({
         type: String,
         required: true,
     },
-    photos: [{
+    photo: [{
         type: String,
     }]
 })
