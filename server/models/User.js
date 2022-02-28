@@ -32,10 +32,6 @@ const userSchema = new Schema({
         type: Number,
         ref: 'Pet'
     }],
-    petSearchHistory: [{
-        type: Number,
-        ref: 'Pet'
-    }]
 
 });
 

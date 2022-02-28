@@ -26,10 +26,19 @@ const petSchema = new Schema({
     breedType: {
         type: String
     },
-    zipCode: {
-        type: String,
-        required: true,
-        minLength: 0,
+    location: {
+        zipCode: {
+            type: String,
+        },
+        city: {
+            type: String,
+        },
+        state: {
+            type: String
+        },
+        country: {
+            type: String
+        },
     },
     linkToPet: {
         type: String,
@@ -40,6 +49,6 @@ const petSchema = new Schema({
     }]
 })
 
-const Pet = model('Pet', petSchema);
+const FavePet = model('FavePet', petSchema);
 
-module.exports = Pet;
+module.exports = FavePet;
