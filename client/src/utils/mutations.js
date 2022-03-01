@@ -59,3 +59,14 @@ mutation addPet(
   }
 }
 `;
+
+export const ADD_PET_TO_USER_FAVE = gql`
+mutation addToUserFave($petId: Int!, $username: String!) {
+  addToUserFave(petId: $petId, username: $username) {
+    favoritePets {
+      _id
+    }
+  }
+}
+
+`;

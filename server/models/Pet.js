@@ -44,6 +44,6 @@ const petSchema = new Schema({
     }
 })
 
-const FavePet = model('FavePet', petSchema);
+const Pet = model('Pet', petSchema);
 
-module.exports = FavePet;
+module.exports = Pet;

@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, FavePet } = require('../models');
+const { User, Pet } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -8,10 +8,10 @@ const resolvers = {
             return User.find();
         },
         user: async (parent, { username }) => {
-            return User.findOne({ username });
+            return User.findOne({ username }).populate('favoritePets');
         },
         pet: async (parent, { petId }) => {
-            return FavePet.findOne({ petId });
+            return Pet.findOne({ petId });
         },
     },
 
@@ -57,8 +57,21 @@ const resolvers = {
         $photo: String
         */
         addPet: async (parent, params) => {
-            const pet = await FavePet.create(params);
+            const pet = await Pet.create(params);
             return pet
+        },
+
+        addToUserFave: async (parent, { username, petId }, context) => {
+            console.log(context.user)
+            const pet = await Pet.findOne({ petId })
+            const user = await User.findOneAndUpdate(
+                { username: username },
+                {
+                    $addToSet: {
+                        favoritePets: pet._id
+                    }
+                })
+            return user
         }
 
     }
