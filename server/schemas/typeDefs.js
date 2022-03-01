@@ -13,14 +13,35 @@ type User {
     user: User
   }
 
+  type Pet {
+    _id: ID
+    petId: Int
+    name: String
+    age: String
+    gender: String
+    species: String
+    breed: String
+    country: String
+    state: String
+    city: String
+    zipCode: String
+    linkToPet: String
+    photo: String
+  }
+
 type Query {
   users: [User]
-    user(username: String!): User
+  user(username: String!): User
 }
 
 type Mutation {
-  addUser(username: String!, email: String!, password: String!): Auth
   login(username: String!, password: String!): Auth
+
+  addUser(username: String!, email: String!, password: String!): Auth
+  addPet(petId: Int!, name: String!, age: String, gender: String,
+    species: String,breed: String,country: String,state: String,
+    city: String,zipCode: String,linkToPet: String!,photo: String) : Pet
+
 }
 
 `;

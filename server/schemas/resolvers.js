@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User } = require('../models');
+const { User, FavePet } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -13,15 +13,10 @@ const resolvers = {
     },
 
     Mutation: {
-        addUser: async (parent, { username, email, password }) => {
-            const user = await User.create({ username, email, password });
-            const token = signToken(user);
-            return { token, user };
-        },
         login: async (parent, { username, password }) => {
             const user = await User.findOne({ username });
 
-            if (!user) {    
+            if (!user) {
                 throw new AuthenticationError('No user found with this username');
             }
 
@@ -35,6 +30,17 @@ const resolvers = {
 
             return { token, user };
         },
+        addUser: async (parent, { username, email, password }) => {
+            const user = await User.create({ username, email, password });
+            const token = signToken(user);
+            return { token, user };
+        },
+
+        addPet: async (parent, params ) => {
+            const pet = await FavePet.create(params);
+            return pet
+        }
+
     }
 }
 

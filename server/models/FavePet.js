@@ -4,6 +4,7 @@ const petSchema = new Schema({
     petId: {
         type: Number,
         required: true,
+        unique: true,
     },
     name: {
         type: String,
@@ -12,40 +13,35 @@ const petSchema = new Schema({
     },
     age: {
         type: String,
-        required: true,
     },
     gender: {
         type: String,
-        required: true,
     },
     species: {
         type: String,
-        required: true,
     },
     breed: {
         type: String
     },
-    location: {
-        zipCode: {
-            type: String,
-        },
-        city: {
-            type: String,
-        },
-        state: {
-            type: String
-        },
-        country: {
-            type: String
-        },
+    country: {
+        type: String
+    },
+    state: {
+        type: String
+    },
+    city: {
+        type: String,
+    },
+    zipCode: {
+        type: String,
     },
     linkToPet: {
         type: String,
-        required: true,
+        required: true
     },
-    photo: [{
+    photo: {
         type: String,
-    }]
+    }
 })
 
 const FavePet = model('FavePet', petSchema);
