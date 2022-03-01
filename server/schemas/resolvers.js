@@ -10,6 +10,9 @@ const resolvers = {
         user: async (parent, { username }) => {
             return User.findOne({ username });
         },
+        pet: async (parent, { petId }) => {
+            return FavePet.findOne({ petId });
+        },
     },
 
     Mutation: {
@@ -36,7 +39,24 @@ const resolvers = {
             return { token, user };
         },
 
-        addPet: async (parent, params ) => {
+        /*params needed 
+        required params
+        $petId: Int!
+        $name: String!
+        $linkToPet: String!
+        
+        optional parameters
+        $age: String
+        $gender: String
+        $species: String
+        $breed: String
+        $country: String
+        $state: String
+        $city: String
+        $zipCode: String
+        $photo: String
+        */
+        addPet: async (parent, params) => {
             const pet = await FavePet.create(params);
             return pet
         }
