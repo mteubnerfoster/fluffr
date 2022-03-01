@@ -29,7 +29,7 @@ const userSchema = new Schema({
         min: [0, 'must be non negative number']
     },
     favoritedPets: [{
-        type: Number,
+        type: Schema.Types.ObjectId,
         ref: 'Pet'
     }],
 
