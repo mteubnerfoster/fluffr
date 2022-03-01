@@ -28,14 +28,12 @@ const userSchema = new Schema({
         type: Number,
         min: [0, 'must be non negative number']
     },
-    favoritedPets: [{
-        type: Number,
-        ref: 'Pet'
-    }],
-    petSearchHistory: [{
-        type: Number,
-        ref: 'Pet'
-    }]
+    favoritePets: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Pet',
+        }
+    ],
 
 });
 
