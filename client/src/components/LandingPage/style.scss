@@ -1,23 +1,44 @@
 .landingPageContainer {
-  min-height: 800px;
   .lpStart {
-    border-radius: 25px;
+    color: white;
     &:hover {
       cursor: pointer;
-      background-color: pink;
     }
   }
-  .lpName {
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    display: inline;
+  .lpNameHeader {
+    font-family: "Caveat";
+    font-size: 75px;
+  }
+  .lpNameP {
+    font-family: "Caveat";
+    font-size: 25px;
   }
 
-  .getStarted {
-    text-decoration: none;
-    color: black;
-    &:hover {
-      color: black;
-    }
+  video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .landingPageContainer {
+    min-height: 750px;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .landingPageContainer {
+    min-height: 1000px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .landingPageContainer {
+    min-height: 800px;
   }
 }

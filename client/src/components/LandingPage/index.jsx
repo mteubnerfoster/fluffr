@@ -1,40 +1,30 @@
 import "./style.css";
 import { Link } from "react-router-dom";
-import logo from "../../data/fluffr-logo-circle.png";
+import logo from "../../data/fluffr-logo-heart-clear.png";
 import heroVid from "../../data/dog-hero-video.mp4";
 
 const LandingPage = () => {
   return (
     <>
-      <section className="container d-flex flex-column justify-content-around landingPageContainer">
-        <video
-          autoPlay
-          loop
-          muted
-          style={{
-            position: "absolute",
-            width: "100%",
-            left: "50%",
-            top: "50%",
-            height: "100%",
-            objectFit: "cover",
-            transform: "translate(-50%, -50%",
-            zIndex: "-1",
-          }}
-        >
-          <source src={heroVid} type="video/mp4" />
-        </video>
+      <section className="container img-fluid d-flex flex-column justify-content-around landingPageContainer">
+        <video src={heroVid} autoPlay loop muted></video>
         <div className="lpLogo">
           <img className="img-fluid" src={logo} alt="fluffr logo" />
         </div>
-        <div className="lpName">
-          <h1>Fluffr</h1>
+        <div className="card col-sm-6 col-md-4 col-lg-2 align-self-center rounded-pill text-light bg-danger bg-opacity-75">
+          <div className="card-body lpName">
+            <h5 className="card-title lpNameHeader">Fluffr</h5>
+            <p className="card-text lpNameP">find your furever friend</p>
+          </div>
         </div>
-        <div className="lpStart">
-          <Link to="/home" className="getStarted">
-            <h2>Get Started!</h2>
-          </Link>
-        </div>
+        <Link to="/home" className="lpStart">
+          <button
+            type="button"
+            className="btn btn-lg rounded-pill text-light bg-danger bg-opacity-75"
+          >
+            Get Started
+          </button>
+        </Link>
       </section>
     </>
   );
