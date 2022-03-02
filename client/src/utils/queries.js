@@ -27,6 +27,20 @@ export const QUERY_ME = gql`
     me {
       _id
       username
+      favoritePets{
+        petId
+        name
+        age
+        gender
+        species
+        breed
+        country
+        state
+        city
+        zipCode
+        linkToPet
+        photo
+      }
     }
   }
 `;
