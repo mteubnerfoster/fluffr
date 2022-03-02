@@ -133,7 +133,7 @@ const Login = () => {
                     </div>
                   </div>
                 )}
-                <button type='submit' className='btn btn-primary me-3'>
+                <button type='submit' className='btn me-3 text-light bg-danger'>
                   {formState.login ? 'Login' : 'Create Account'}
                 </button>
                 <a
