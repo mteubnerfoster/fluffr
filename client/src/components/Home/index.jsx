@@ -1,13 +1,13 @@
 import React from "react";
 import "./style.css";
+import Header from "../Header";
 import NavBar from "../NavBar";
-import Footer from '../Footer'
+import Footer from "../Footer";
 
 const Home = () => {
   return (
     <>
-      <h1>Fluffr</h1>
-      <p>Find your Furever Friend</p>
+      <Header />
       <NavBar />
       <div>Home</div>
       <Footer />
