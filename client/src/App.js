@@ -5,6 +5,7 @@ import Home from './components/Home/tinderTest';
 import Login from './components/Login';
 import LandingPage from './components/LandingPage';
 import Search from './components/Search';
+import Locaiton from './components/Location';
 
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 
@@ -24,6 +25,7 @@ function App() {
             <Route exact path='/profile' component={Profile} />
             <Route exact path='/login' component={Login} />
             <Route exact path='/search' component={Search} />
+            <Route exact path='/location' component={Locaiton} />
           </Switch>
         </div>
       </Router>
