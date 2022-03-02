@@ -36,6 +36,7 @@ type Query {
   users: [User]
   user(username: String!): User
   pet(petId: Int!): Pet
+  me: User
 }
 
 type Mutation {
