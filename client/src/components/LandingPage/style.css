@@ -1,29 +1,19 @@
-.landingPageContainer {
-  min-height: 800px;
-}
-
 .landingPageContainer .lpStart {
-  border-radius: 25px;
+  color: white;
 }
 
 .landingPageContainer .lpStart:hover {
   cursor: pointer;
-  background-color: pink;
 }
 
-.landingPageContainer .lpName {
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  display: inline;
+.landingPageContainer .lpNameHeader {
+  font-family: "Caveat";
+  font-size: 75px;
 }
 
-.landingPageContainer .getStarted {
-  text-decoration: none;
-  color: black;
-}
-
-.landingPageContainer .getStarted:hover {
-  color: black;
+.landingPageContainer .lpNameP {
+  font-family: "Caveat";
+  font-size: 25px;
 }
 
 .landingPageContainer video {
@@ -35,5 +25,23 @@
   -o-object-fit: cover;
      object-fit: cover;
   z-index: -1;
+}
+
+@media screen and (max-width: 600px) {
+  .landingPageContainer {
+    min-height: 750px;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .landingPageContainer {
+    min-height: 1000px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .landingPageContainer {
+    min-height: 800px;
+  }
 }
 /*# sourceMappingURL=style.css.map */
