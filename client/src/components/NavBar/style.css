@@ -73,6 +73,10 @@
     background-color: #dddddd;
 }
 
+/* ion-icon {
+    font-size: 70px;
+  } */
+
 @media (min-width: 800px) {
     .list-wrapper img {
         display: none;
