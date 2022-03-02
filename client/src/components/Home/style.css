@@ -1,5 +1,5 @@
 body {
-    background-color: rgba(95, 7, 146, 0.575) !important;
+    background-color: rgba(178, 108, 219, 0.575) !important;
     opacity: 1;
 }
 
@@ -11,13 +11,14 @@ Button {
 
 .button {
     display: inline-block !important;
+    /* background-color: red !important; */
 }
 
-.button .btn .heart {
-    color: red !important;
+Button .btn .heart {
+    /* color: red !important; */
 }
 
-.button .btn .cross-heart {
+.button .btn-primary .cross-heart {
     color: black !important;
 }
 
@@ -25,3 +26,12 @@ Button {
     color: black !important;
 }
 
+.newButton {
+    /* background-color: red !important; */
+    display: flex !important;
+    margin-top: 10px;
+}
+
+.r-backgroundColor-14sbq61 {
+    background: rgba(152, 54, 197, 0.432) !important;
+}

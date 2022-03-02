@@ -55,6 +55,7 @@ const Buttons = styled.View`
   margin: 30px;
   z-index: -100;
   display: inline-block;
+  color: red !important;
 `;
 
 const InfoText = styled.Text`
@@ -129,7 +130,7 @@ const Advanced = () => {
   };
 
   const undo = () => {
-      
+
   };
 
   return (
@@ -154,25 +155,24 @@ const Advanced = () => {
           ))}
         </CardContainer>
 
-        <Buttons className="button">
+        <div className="newButton"  style={{display: "flex", justifyContent: "space-between", width: "150px" }}>
+          
           <Button
-            className="btn"
+          
             onPress={() => swipe("left")}
             title={<ion-icon name="heart-dislike" className="heart"></ion-icon>}
           />
-          <Button
-            className="btn"
+          {/* <Button
             onClick={() => undo()}
             title={
               <ion-icon name="arrow-undo" className="arrow-undo"></ion-icon>
             }
-          />
-          <Button
-            className="btn"
+          /> */}
+          <Button 
             onPress={() => swipe("right")}
-            title={<ion-icon name="heart" className="cross-heart"></ion-icon>}
+            title={<ion-icon name="heart" className="cross-heart" style={{color: "red"}}></ion-icon>}
           />
-        </Buttons>
+        </div>
 
         {lastDirection ? (
           <InfoText key={lastDirection}>You swiped {lastDirection}</InfoText>
