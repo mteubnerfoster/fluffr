@@ -63,6 +63,13 @@ const Login = () => {
     }
   };
 
+  const handleOnChange = (e) => {
+    setFormState({
+      ...formState,
+      [e.target.name]: e.target.value,
+    });
+  };
+
   return (
     <>
       <h1>Fluffr</h1>
@@ -84,12 +91,7 @@ const Login = () => {
                     name='username'
                     value={formState.username}
                     id='username-login'
-                    onChange={(e) =>
-                      setFormState({
-                        ...formState,
-                        username: e.target.value,
-                      })
-                    }
+                    onChange={handleOnChange}
                   />
                 </div>
                 <div className='mb-3'>
@@ -103,12 +105,7 @@ const Login = () => {
                     id='password-login'
                     value={formState.password}
                     minLength='8'
-                    onChange={(e) =>
-                      setFormState({
-                        ...formState,
-                        password: e.target.value,
-                      })
-                    }
+                    onChange={handleOnChange}
                   />
                   {!formState.login && (
                     <div id='passwordHelp' className='form-text'>
@@ -129,12 +126,7 @@ const Login = () => {
                       id='email-signup'
                       aria-describedby='emailHelp'
                       value={formState.email}
-                      onChange={(e) =>
-                        setFormState({
-                          ...formState,
-                          email: e.target.value,
-                        })
-                      }
+                      onChange={handleOnChange}
                     />
                     <div id='emailHelp' className='form-text'>
                       We'll never share your email with anyone else.
