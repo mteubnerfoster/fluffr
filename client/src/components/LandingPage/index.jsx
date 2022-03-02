@@ -1,6 +1,6 @@
 import "./style.css";
 import { Link } from "react-router-dom";
-import logo from "../../data/fluffr-logo-heart-clear.png";
+import logo from "../../data/fluffr-logo-heart-inverted-iii.png";
 import heroVid from "../../data/dog-hero-video.mp4";
 
 const LandingPage = () => {
