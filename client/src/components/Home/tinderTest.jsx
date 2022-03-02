@@ -4,8 +4,9 @@ import styled from "styled-components/native";
 import TinderCard from "react-tinder-card";
 import "./style.css";
 import NavBar from "../NavBar";
-import { ADD_PET_TO_DB } from "../../utils/mutations";
+import { ADD_PET_TO_DB, ADD_PET_TO_USER_FAVE } from "../../utils/mutations";
 import { useMutation } from "@apollo/client";
+import Auth from "../../utils/auth";
 
 var petfinder = require("@petfinder/petfinder-js");
 
@@ -79,6 +80,7 @@ const InfoText = styled.Text`
 const Advanced = () => {
   const [animals, setAnimals] = useState([]);
   const [addPet, { error, data }] = useMutation(ADD_PET_TO_DB);
+  const [addPetToFave, { errorF, dataF }] = useMutation(ADD_PET_TO_USER_FAVE);
 
   useEffect(async () => {
     const getAnimals = async () => {
@@ -129,6 +131,8 @@ const Advanced = () => {
     if (direction == "right") {
       console.log(identity.fullProfile);
       console.log("right swipe");
+      console.log(Auth.getProfile().data);
+      let username = Auth.getProfile().data.username
       try {
         const { data } = await addPet({
           variables: {
@@ -146,6 +150,12 @@ const Advanced = () => {
             photo: identity.fullProfile.primary_photo_cropped.large,
           },
         });
+        const { data2} = await addPetToFave({
+          variables:{
+            petId: identity.fullProfile.id,
+            username: username
+          }
+        })
       } catch (e) {
         console.error(e);
       }
