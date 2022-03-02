@@ -77,6 +77,7 @@ const InfoText = styled.Text`
   z-index: -100;
 `;
 
+
 const Advanced = () => {
   const [animals, setAnimals] = useState([]);
   const [addPet, { error, data }] = useMutation(ADD_PET_TO_DB);
