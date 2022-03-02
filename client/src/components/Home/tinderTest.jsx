@@ -10,6 +10,7 @@ const Container = styled.View`
   align-items: center;
   justify-content: center;
   width: 100%;
+  height: 100%
 `;
 
 const Header = styled.Text`
@@ -171,7 +172,7 @@ const Advanced = () => {
           /> */}
           <Button 
             onPress={() => swipe("right")}
-            title={<ion-icon name="heart" className="cross-heart" style={{color: "#D84343"}}></ion-icon>}
+            title={<ion-icon name="heart" className="cross-heart" style={{color: "#fffff"}}></ion-icon>}
           />
         </div>
 
