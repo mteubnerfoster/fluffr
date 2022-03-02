@@ -27,6 +27,9 @@
 .App-link {
   color: #61dafb;
 }
+ion-icon {
+  font-size: 50px;
+}
 
 @keyframes App-logo-spin {
   from {
