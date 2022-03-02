@@ -53,25 +53,25 @@ const NavBar = () => {
             <li>
               <Link to='/home'>
                 {' '}
-                <ion-icon name="home-outline"></ion-icon>
+                <ion-icon name="home-outline" size="large" fontSize="70px"></ion-icon>
                 </Link>
             </li>
             <li>
               <Link to='/profile'>
                 {' '}
-                <ion-icon name='person-outline'></ion-icon>
+                <ion-icon name='person-outline' size="large"></ion-icon>
               </Link>
             </li>
             <li>
               <Link to='/location'>
                 {' '}
-                <ion-icon name='location-outline'></ion-icon>
+                <ion-icon name='location-outline' size="large"></ion-icon>
               </Link>
             </li>
             <li>
               <Link to='/search'>
                 {' '}
-                <ion-icon name="search-outline"></ion-icon>
+                <ion-icon name="search-outline" size="large"></ion-icon>
               </Link>
             </li>
           </ul>

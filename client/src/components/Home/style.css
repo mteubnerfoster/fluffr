@@ -33,5 +33,10 @@ Button .btn .heart {
 }
 
 .r-backgroundColor-14sbq61 {
-    background: rgba(152, 54, 197, 0.432) !important;
+    background: rgba(161, 39, 218, 0.226) !important;
+
+}
+
+.r-borderRadius-1jkafct {
+    border-radius: 20px;
 }

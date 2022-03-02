@@ -1,12 +1,12 @@
 import React from "react";
 import NavBar from "../NavBar";
 import Footer from "../Footer";
+import Header from "../Header";
 
 export const Profile = () => {
   return (
     <>
-      <h1>Fluffr</h1>
-      <p>Find your Furever Friend</p>
+      <Header />
       <NavBar />
       <div>Profile</div>
       <Footer />

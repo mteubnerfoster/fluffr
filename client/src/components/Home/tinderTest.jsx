@@ -62,6 +62,7 @@ const Buttons = styled.View`
   z-index: -100;
   display: inline-block;
   color: red !important;
+  border-radius: 20px;
 `;
 
 const InfoText = styled.Text`
@@ -172,7 +173,7 @@ const Advanced = () => {
     <div>
       <Container>
         <NavBar />
-        <Header>React Native Tinder Card</Header>
+        <Header>Fluffr</Header>
         <CardContainer>
           {dbAPI.map((character, index) => (
             <TinderCard
@@ -195,12 +196,18 @@ const Advanced = () => {
           style={{
             display: 'flex',
             justifyContent: 'space-between',
-            width: '150px',
+            width: '200px',
           }}
         >
           <Button
             onPress={() => swipe('left')}
-            title={<ion-icon name='heart-dislike' className='heart'></ion-icon>}
+            title={
+              <ion-icon
+                name='heart-dislike'
+                className='heart'
+                style={{ color: '#A3A7AE' }}
+              ></ion-icon>
+            }
           />
           {/* <Button
             onClick={() => undo()}
@@ -214,7 +221,7 @@ const Advanced = () => {
               <ion-icon
                 name='heart'
                 className='cross-heart'
-                style={{ color: 'red' }}
+                style={{ color: '#D84343' }}
               ></ion-icon>
             }
           />
@@ -223,7 +230,9 @@ const Advanced = () => {
         {lastDirection ? (
           <InfoText key={lastDirection}>You swiped {lastDirection}</InfoText>
         ) : (
-          <InfoText>Swipe a card or press a button to get started!</InfoText>
+          <InfoText>
+            Swipe right or left, or click a button to get started!
+          </InfoText>
         )}
       </Container>
     </div>
