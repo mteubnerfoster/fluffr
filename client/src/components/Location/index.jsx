@@ -1,14 +1,18 @@
-import React from 'react'
-import NavBar from '../NavBar'
-import './style.css'
+import React from "react";
+import Header from "../Header";
+import NavBar from "../NavBar";
+import "./style.css";
 
 const Locaiton = () => {
   return (
-    <div>
+    <>
+      <Header />
+      <div>
         <NavBar />
         <h1>Location</h1>
-    </div>
-  )
-}
+      </div>
+    </>
+  );
+};
 
-export default Locaiton
+export default Locaiton;
