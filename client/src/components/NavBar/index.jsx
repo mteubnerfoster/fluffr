@@ -51,18 +51,27 @@ const NavBar = () => {
           />
           <ul style={{ left: open ? '0' : '-100vw' }}>
             <li>
-              <Link to='/home'>Home</Link>
+              <Link to='/home'>
+                {' '}
+                <ion-icon name="home-outline"></ion-icon>
+                </Link>
             </li>
             <li>
               <Link to='/profile'>
                 {' '}
-                <ion-icon name='person-outline'></ion-icon> Profile
+                <ion-icon name='person-outline'></ion-icon>
               </Link>
             </li>
             <li>
               <Link to='/location'>
                 {' '}
-                <ion-icon name='location-outline'></ion-icon>Location
+                <ion-icon name='location-outline'></ion-icon>
+              </Link>
+            </li>
+            <li>
+              <Link to='/search'>
+                {' '}
+                <ion-icon name="search-outline"></ion-icon>
               </Link>
             </li>
           </ul>

@@ -2,7 +2,7 @@ import React, { useState, useMemo } from "react";
 import { Button } from "react-native";
 import styled from "styled-components/native";
 import TinderCard from "react-tinder-card";
-import './style.css'
+import "./style.css";
 import NavBar from "../NavBar";
 
 const Container = styled.View`
@@ -10,7 +10,6 @@ const Container = styled.View`
   align-items: center;
   justify-content: center;
   width: 100%;
-  
 `;
 
 const Header = styled.Text`
@@ -55,6 +54,7 @@ const CardTitle = styled.Text`
 const Buttons = styled.View`
   margin: 30px;
   z-index: -100;
+  display: inline-block;
 `;
 
 const InfoText = styled.Text`
@@ -128,12 +128,14 @@ const Advanced = () => {
     }
   };
 
-  const undo = () => {};
+  const undo = () => {
+      
+  };
 
   return (
-    
+    <div>
       <Container>
-        <NavBar />  
+        <NavBar />
         <Header>React Native Tinder Card</Header>
         <CardContainer>
           {characters.map((character, index) => (
@@ -152,10 +154,24 @@ const Advanced = () => {
           ))}
         </CardContainer>
 
-        <Buttons>
-          <Button className="btn" onPress={() => swipe("left")} title="❌" />
-          <Button onClick={() => undo()} title="↩️" />
-          <Button onPress={() => swipe("right")} title="❤️" />
+        <Buttons className="button">
+          <Button
+            className="btn"
+            onPress={() => swipe("left")}
+            title={<ion-icon name="heart-dislike" className="heart"></ion-icon>}
+          />
+          <Button
+            className="btn"
+            onClick={() => undo()}
+            title={
+              <ion-icon name="arrow-undo" className="arrow-undo"></ion-icon>
+            }
+          />
+          <Button
+            className="btn"
+            onPress={() => swipe("right")}
+            title={<ion-icon name="heart" className="cross-heart"></ion-icon>}
+          />
         </Buttons>
 
         {lastDirection ? (
@@ -164,7 +180,7 @@ const Advanced = () => {
           <InfoText>Swipe a card or press a button to get started!</InfoText>
         )}
       </Container>
-    
+    </div>
   );
 };
 
