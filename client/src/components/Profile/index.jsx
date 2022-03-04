@@ -16,10 +16,10 @@ export const Profile = () => {
   }
 
   if (Auth.loggedIn()) {
-    //   if (data.me) {
-    //     let favedPets = data.me.favoritePets;
-    //     console.log(favedPets);
-    //   }
+      if (data.me) {
+        let favedPets = data.me.favoritePets;
+        console.log(favedPets);
+      }
   }else{
     return <Redirect to="/login" />;
   }
