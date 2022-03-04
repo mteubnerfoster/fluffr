@@ -18,7 +18,9 @@ This app will assist users in finding their perfect rescue pet, in a similar sty
 
 ## User Story
 ```
-As an animal lover with room in my home and heart, I want to see what rescue pets are available in my area so that I can find my furever friend.
+As an animal lover with room in my home and heart, 
+I want to see what rescue pets are available in my area 
+so that I can find my furever friend.
 ```
 
 ## Technologies
