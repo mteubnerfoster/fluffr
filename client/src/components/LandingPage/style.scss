@@ -7,7 +7,7 @@
   }
   .lpNameHeader {
     font-family: "Caveat";
-    font-size: 75px;
+    font-size: 55px;
   }
   .lpNameP {
     font-family: "Caveat";
@@ -27,18 +27,19 @@
 
 @media screen and (max-width: 600px) {
   .landingPageContainer {
-    min-height: 750px;
+    min-height: 665px;
   }
 }
 
 @media screen and (min-width: 600px) {
   .landingPageContainer {
-    min-height: 1000px;
+    min-height: 665px;
   }
 }
 
 @media screen and (min-width: 992px) {
   .landingPageContainer {
-    min-height: 800px;
+    min-height: 830px;
+    
   }
 }
