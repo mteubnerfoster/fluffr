@@ -68,7 +68,6 @@ const resolvers = {
         },
 
         addToUserFave: async (parent, { username, petId }, context) => {
-            console.log(context.user)
             const pet = await Pet.findOne({ petId })
             const user = await User.findOneAndUpdate(
                 { username: username },
@@ -78,6 +77,15 @@ const resolvers = {
                     }
                 })
             return user
+        },
+
+        removePet: async (parent, { username, petId }, context) => {
+            const pet = await Pet.findOne({ petId })
+            await User.findOneAndUpdate(
+                { username: username },
+                { $pull: { favoritePets: pet._id } }
+            );
+            return pet
         }
 
     }
