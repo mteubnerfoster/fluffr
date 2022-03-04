@@ -14,10 +14,6 @@ Button {
     /* background-color: red !important; */
 }
 
-Button .btn .heart {
-    /* color: red !important; */
-}
-
 .button .btn-primary .cross-heart {
     color: black !important;
 }

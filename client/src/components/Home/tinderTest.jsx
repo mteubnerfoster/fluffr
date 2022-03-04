@@ -4,6 +4,7 @@ import styled from 'styled-components/native';
 import TinderCard from 'react-tinder-card';
 import './style.css';
 import NavBar from '../NavBar';
+import Footer from '../Footer';
 var petfinder = require('@petfinder/petfinder-js');
 
 var client = new petfinder.Client({
@@ -219,6 +220,7 @@ const Advanced = () => {
           </InfoText>
         )}
       </Container>
+      <Footer />
     </div>
   );
 };
