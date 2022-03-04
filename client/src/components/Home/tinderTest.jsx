@@ -1,19 +1,19 @@
-import React, { useState, useMemo, useEffect } from "react";
-import { Button } from "react-native";
-import styled from "styled-components/native";
-import TinderCard from "react-tinder-card";
-import "./style.css";
-import NavBar from "../NavBar";
-import { ADD_PET_TO_DB, ADD_PET_TO_USER_FAVE } from "../../utils/mutations";
-import { useMutation } from "@apollo/client";
-import Auth from "../../utils/auth";
-import Footer from "../Footer";
+import React, { useState, useMemo, useEffect } from 'react';
+import { Button } from 'react-native';
+import styled from 'styled-components/native';
+import TinderCard from 'react-tinder-card';
+import './style.css';
+import NavBar from '../NavBar';
+import { ADD_PET_TO_DB, ADD_PET_TO_USER_FAVE } from '../../utils/mutations';
+import { useMutation } from '@apollo/client';
+import Auth from '../../utils/auth';
+import Footer from '../Footer';
 
-var petfinder = require("@petfinder/petfinder-js");
+var petfinder = require('@petfinder/petfinder-js');
 
 var client = new petfinder.Client({
-  apiKey: "FA7RNqMRl3NJ7oCh2no35IRXXnxRaz8SENNjZH2LyztrU0OhWp",
-  secret: "Gp420PyVzkrI3CdyEAwy1xYFwtcdVURyjXBe0zlE",
+  apiKey: process.env.API_KEY,
+  secret: process.env.API_SECRET,
 });
 
 const Container = styled.View`
@@ -84,7 +84,7 @@ const Advanced = () => {
   const [addPetToFave, { errorF, dataF }] = useMutation(ADD_PET_TO_USER_FAVE);
 
   useEffect(async () => {
-    console.log("USE EFFECT ABOUT TOHAAPPEN!!");
+    console.log('USE EFFECT ABOUT TOHAAPPEN!!');
     const getAnimals = async () => {
       return client.animal.search({
         // type: 'Cat',
@@ -95,7 +95,7 @@ const Advanced = () => {
       const response = await getAnimals();
       setAnimals(response.data.animals);
     } catch (err) {
-      console.log("Err!!!!", err);
+      console.log('Err!!!!', err);
     }
   }, []);
 
@@ -130,10 +130,10 @@ const Advanced = () => {
   // console.log('dbAPI!!!', dbAPI);
 
   const swiped = async (direction, nameToDelete, identity) => {
-    console.log("removing: " + nameToDelete + " to the " + direction);
-    if (direction == "right") {
+    console.log('removing: ' + nameToDelete + ' to the ' + direction);
+    if (direction == 'right') {
       console.log(identity.fullProfile);
-      console.log("right swipe");
+      console.log('right swipe');
       console.log(Auth.getProfile().data);
       let username = Auth.getProfile().data.username;
       try {
@@ -168,7 +168,7 @@ const Advanced = () => {
   };
 
   const outOfFrame = (name) => {
-    console.log(name + " left the screen!");
+    console.log(name + ' left the screen!');
     charactersState = charactersState.filter(
       (character) => character.name !== name
     );
@@ -183,8 +183,8 @@ const Advanced = () => {
       const toBeRemoved = cardsLeft[cardsLeft.length - 1].name; // Find the card object to be removed
       const index = dbAPI.map((person) => person.name).indexOf(toBeRemoved); // Find the index of which to make the reference to
       alreadyRemoved.push(toBeRemoved); // Make sure the next card gets removed next time if this card do not have time to exit the screen
-      console.log("child ref ting before err", childRefs);
-      console.log("Indiex right before err", index);
+      console.log('child ref ting before err', childRefs);
+      console.log('Indiex right before err', index);
       childRefs[index].current.swipe(dir); // Swipe the card!
     }
   };
@@ -216,31 +216,31 @@ const Advanced = () => {
         </CardContainer>
 
         <div
-          className="newButton"
+          className='newButton'
           style={{
-            display: "flex",
-            justifyContent: "space-between",
-            width: "200px",
+            display: 'flex',
+            justifyContent: 'space-between',
+            width: '200px',
           }}
         >
           <Button
-            onPress={() => swipe("left")}
+            onPress={() => swipe('left')}
             title={
               <ion-icon
-                name="heart-dislike"
-                className="heart"
-                style={{ color: "#A3A7AE" }}
+                name='heart-dislike'
+                className='heart'
+                style={{ color: '#A3A7AE' }}
               ></ion-icon>
             }
           />
 
           <Button
-            onPress={() => swipe("right")}
+            onPress={() => swipe('right')}
             title={
               <ion-icon
-                name="heart"
-                className="cross-heart"
-                style={{ color: "#D84343" }}
+                name='heart'
+                className='cross-heart'
+                style={{ color: '#D84343' }}
               ></ion-icon>
             }
           />
