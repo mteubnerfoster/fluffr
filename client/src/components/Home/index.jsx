@@ -1,14 +1,15 @@
-import React, { useState, useMemo, useEffect } from 'react';
-import { Button } from 'react-native';
-import styled from 'styled-components/native';
-import TinderCard from 'react-tinder-card';
-import './style.css';
-import NavBar from '../NavBar';
-import { ADD_PET_TO_DB, ADD_PET_TO_USER_FAVE } from '../../utils/mutations';
-import { useMutation } from '@apollo/client';
-import Auth from '../../utils/auth';
-import Footer from '../Footer';
-import Header from '../Header';
+import React, { useState, useMemo, useEffect } from "react";
+import { Button } from "react-native";
+import styled from "styled-components/native";
+import TinderCard from "react-tinder-card";
+import { Redirect } from "react-router-dom";
+import "./style.css";
+import NavBar from "../NavBar";
+import { ADD_PET_TO_DB, ADD_PET_TO_USER_FAVE } from "../../utils/mutations";
+import { useMutation } from "@apollo/client";
+import Auth from "../../utils/auth";
+import Footer from "../Footer";
+import Header from "../Header";
 
 var petfinder = require('@petfinder/petfinder-js');
 
@@ -85,7 +86,8 @@ const Advanced = () => {
   const [addPetToFave, { errorF, dataF }] = useMutation(ADD_PET_TO_USER_FAVE);
 
   useEffect(async () => {
-    console.log('USE EFFECT ABOUT TOHAAPPEN!!');
+    console.log("USE EFFECT ABOUT TOHAAPPEN!!");
+
     const getAnimals = async () => {
       return client.animal.search({
         // type: 'Cat',
@@ -124,6 +126,10 @@ const Advanced = () => {
 
   const [characters, setCharacters] = useState([]);
   const [lastDirection, setLastDirection] = useState();
+
+  if (!Auth.loggedIn()) {
+    return <Redirect to="/login" />;
+  }
   const alreadyRemoved = [];
   let charactersState = dbAPI;
   // This fixes issues with updating characters state forcing it to use the current state and not the state that was active when the card was created.
@@ -184,8 +190,10 @@ const Advanced = () => {
       const toBeRemoved = cardsLeft[cardsLeft.length - 1].name; // Find the card object to be removed
       const index = dbAPI.map((person) => person.name).indexOf(toBeRemoved); // Find the index of which to make the reference to
       alreadyRemoved.push(toBeRemoved); // Make sure the next card gets removed next time if this card do not have time to exit the screen
-      console.log('child ref ting before err', childRefs);
-      console.log('Indiex right before err', index);
+      
+      console.log("child ref ting before err", childRefs);
+      console.log("Indiex right before err", index);
+
       childRefs[index].current.swipe(dir); // Swipe the card!
     }
   };
