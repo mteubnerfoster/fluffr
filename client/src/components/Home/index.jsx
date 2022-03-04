@@ -8,6 +8,7 @@ import { ADD_PET_TO_DB, ADD_PET_TO_USER_FAVE } from "../../utils/mutations";
 import { useMutation } from "@apollo/client";
 import Auth from "../../utils/auth";
 import Footer from "../Footer";
+import Header from "../Header";
 
 var petfinder = require("@petfinder/petfinder-js");
 
@@ -24,11 +25,11 @@ const Container = styled.View`
   height: 100%;
 `;
 
-const Header = styled.Text`
-  color: #000;
-  font-size: 30px;
-  margin-bottom: 30px;
-`;
+// const Header = styled.Text`
+//   color: #000;
+//   font-size: 30px;
+//   margin-bottom: 30px;
+// `;
 
 const CardContainer = styled.View`
   width: 90%;
@@ -200,7 +201,7 @@ const Advanced = () => {
     <div>
       <Container>
         <NavBar />
-        <Header>Fluffr</Header>
+        <Header />
         <CardContainer>
           {dbAPI.map((character, index) => (
             <TinderCard
