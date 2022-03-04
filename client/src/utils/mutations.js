@@ -70,3 +70,12 @@ mutation addToUserFave($petId: Int!, $username: String!) {
 }
 
 `;
+
+export const REMOVE_PET_FROM_FAVE = gql`
+mutation removePet($petId: Int!, $username: String!) {
+  removePet(petId: $petId, username: $username) {
+    petId
+    name
+  }
+}
+`

@@ -48,7 +48,7 @@ type Mutation {
     city: String,zipCode: String,linkToPet: String!,photo: String) : Pet
 
   addToUserFave(petId: Int!, username: String!): User
-
+  removePet(petId: Int!, username: String!): Pet
 }
 
 `;
