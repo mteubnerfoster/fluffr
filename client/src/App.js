@@ -47,6 +47,7 @@ function App() {
             <Route exact path='/search' component={Search} />
             <Route exact path='/location' component={Locaiton} />
             <Route exact path='/about' component={About} />
+            <Route exact path='/logout' component={LandingPage} />
           </Switch>
         </div>
       </Router>

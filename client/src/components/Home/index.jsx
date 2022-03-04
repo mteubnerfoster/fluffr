@@ -2,6 +2,7 @@ import React, { useState, useMemo, useEffect } from "react";
 import { Button } from "react-native";
 import styled from "styled-components/native";
 import TinderCard from "react-tinder-card";
+import { Redirect } from "react-router-dom";
 import "./style.css";
 import NavBar from "../NavBar";
 import { ADD_PET_TO_DB, ADD_PET_TO_USER_FAVE } from "../../utils/mutations";
@@ -79,14 +80,13 @@ const InfoText = styled.Text`
   z-index: -100;
 `;
 
-
 const Advanced = () => {
   const [animals, setAnimals] = useState([]);
   const [addPet, { error, data }] = useMutation(ADD_PET_TO_DB);
   const [addPetToFave, { errorF, dataF }] = useMutation(ADD_PET_TO_USER_FAVE);
 
   useEffect(async () => {
-      console.log('USE EFFECT ABOUT TOHAAPPEN!!')
+    console.log("USE EFFECT ABOUT TOHAAPPEN!!");
     const getAnimals = async () => {
       return client.animal.search({
         // type: 'Cat',
@@ -96,8 +96,6 @@ const Advanced = () => {
     try {
       const response = await getAnimals();
       setAnimals(response.data.animals);
-
- 
     } catch (err) {
       console.log("Err!!!!", err);
     }
@@ -117,29 +115,33 @@ const Advanced = () => {
     }
   });
 
-   const childRefs = useMemo(
-        () =>
-          Array(100)
-            .fill(0)
-            .map((i) => React.createRef()),
-        []
-      );
+  const childRefs = useMemo(
+    () =>
+      Array(100)
+        .fill(0)
+        .map((i) => React.createRef()),
+    []
+  );
 
   const [characters, setCharacters] = useState([]);
   const [lastDirection, setLastDirection] = useState();
+
+  if (!Auth.loggedIn()) {
+    return <Redirect to="/login" />;
+  }
   const alreadyRemoved = [];
   let charactersState = dbAPI;
   // This fixes issues with updating characters state forcing it to use the current state and not the state that was active when the card was created.
   // console.log('characters!!!', characters);
   // console.log('dbAPI!!!', dbAPI);
-  
+
   const swiped = async (direction, nameToDelete, identity) => {
     console.log("removing: " + nameToDelete + " to the " + direction);
     if (direction == "right") {
       console.log(identity.fullProfile);
       console.log("right swipe");
       console.log(Auth.getProfile().data);
-      let username = Auth.getProfile().data.username
+      let username = Auth.getProfile().data.username;
       try {
         const { data } = await addPet({
           variables: {
@@ -157,12 +159,12 @@ const Advanced = () => {
             photo: identity.fullProfile.primary_photo_cropped.large,
           },
         });
-        const { data2} = await addPetToFave({
-          variables:{
+        const { data2 } = await addPetToFave({
+          variables: {
             petId: identity.fullProfile.id,
-            username: username
-          }
-        })
+            username: username,
+          },
+        });
       } catch (e) {
         console.error(e);
       }
@@ -187,8 +189,8 @@ const Advanced = () => {
       const toBeRemoved = cardsLeft[cardsLeft.length - 1].name; // Find the card object to be removed
       const index = dbAPI.map((person) => person.name).indexOf(toBeRemoved); // Find the index of which to make the reference to
       alreadyRemoved.push(toBeRemoved); // Make sure the next card gets removed next time if this card do not have time to exit the screen
-      console.log('child ref ting before err', childRefs)
-      console.log('Indiex right before err', index)
+      console.log("child ref ting before err", childRefs);
+      console.log("Indiex right before err", index);
       childRefs[index].current.swipe(dir); // Swipe the card!
     }
   };
@@ -237,7 +239,7 @@ const Advanced = () => {
               ></ion-icon>
             }
           />
-          
+
           <Button
             onPress={() => swipe("right")}
             title={
