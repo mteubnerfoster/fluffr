@@ -1,15 +1,18 @@
-import React, { useState, useMemo, useEffect } from 'react';
-import { Button } from 'react-native';
-import styled from 'styled-components/native';
-import TinderCard from 'react-tinder-card';
-import './style.css';
-import NavBar from '../NavBar';
-import Footer from '../Footer';
-var petfinder = require('@petfinder/petfinder-js');
+import React, { useState, useMemo, useEffect } from "react";
+import { Button } from "react-native";
+import styled from "styled-components/native";
+import TinderCard from "react-tinder-card";
+import "./style.css";
+import NavBar from "../NavBar";
+import { ADD_PET_TO_DB, ADD_PET_TO_USER_FAVE } from "../../utils/mutations";
+import { useMutation } from "@apollo/client";
+import Auth from "../../utils/auth";
+
+var petfinder = require("@petfinder/petfinder-js");
 
 var client = new petfinder.Client({
-  apiKey: 'FA7RNqMRl3NJ7oCh2no35IRXXnxRaz8SENNjZH2LyztrU0OhWp',
-  secret: 'Gp420PyVzkrI3CdyEAwy1xYFwtcdVURyjXBe0zlE',
+  apiKey: "FA7RNqMRl3NJ7oCh2no35IRXXnxRaz8SENNjZH2LyztrU0OhWp",
+  secret: "Gp420PyVzkrI3CdyEAwy1xYFwtcdVURyjXBe0zlE",
 });
 
 const Container = styled.View`
@@ -17,7 +20,7 @@ const Container = styled.View`
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 100%
+  height: 100%;
 `;
 
 const Header = styled.Text`
@@ -77,7 +80,8 @@ const InfoText = styled.Text`
 
 const Advanced = () => {
   const [animals, setAnimals] = useState([]);
-
+  const [addPet, { error, data }] = useMutation(ADD_PET_TO_DB);
+  const [addPetToFave, { errorF, dataF }] = useMutation(ADD_PET_TO_USER_FAVE);
 
   useEffect(async () => {
       console.log('USE EFFECT ABOUT TOHAAPPEN!!')
@@ -93,19 +97,20 @@ const Advanced = () => {
 
  
     } catch (err) {
-      console.log('Err!!!!', err);
+      console.log("Err!!!!", err);
     }
   }, []);
 
   const dbAPI = [];
-  console.log('Animals@!!! beofre map ********', animals);
+  // console.log('Animals@!!! beofre map ********', animals);
   animals.map((animal) => {
     if (animal.photos[0]?.medium) {
       let animalWithPhoto = {
         name: animal.name,
         img: animal.photos[0]?.medium,
+        fullProfile: animal,
       };
-     // console.log('animalwithPHotos!!!!', animalWithPhoto);
+      // console.log('animalwithPHotos!!!!', animalWithPhoto);
       dbAPI.push(animalWithPhoto);
     }
   });
@@ -123,18 +128,56 @@ const Advanced = () => {
   const alreadyRemoved = [];
   let charactersState = dbAPI;
   // This fixes issues with updating characters state forcing it to use the current state and not the state that was active when the card was created.
-  console.log('characters!!!', characters);
-  console.log('dbAPI!!!', dbAPI);
+  // console.log('characters!!!', characters);
+  // console.log('dbAPI!!!', dbAPI);
 
-
-  const swiped = (direction, nameToDelete) => {
-    console.log('removing: ' + nameToDelete + ' to the ' + direction);
+  const childRefs = useMemo(
+    () =>
+      Array(dbAPI.length)
+        .fill(0)
+        .map((i) => React.createRef()),
+    []
+  );
+  const swiped = async (direction, nameToDelete, identity) => {
+    console.log("removing: " + nameToDelete + " to the " + direction);
+    if (direction == "right") {
+      console.log(identity.fullProfile);
+      console.log("right swipe");
+      console.log(Auth.getProfile().data);
+      let username = Auth.getProfile().data.username
+      try {
+        const { data } = await addPet({
+          variables: {
+            petId: identity.fullProfile.id,
+            name: identity.fullProfile.name,
+            age: identity.fullProfile.age,
+            gender: identity.fullProfile.gender,
+            species: identity.fullProfile.type,
+            breed: identity.fullProfile.breeds.primary,
+            country: identity.fullProfile.contact.address.country,
+            state: identity.fullProfile.contact.address.state,
+            city: identity.fullProfile.contact.address.city,
+            zipCode: identity.fullProfile.contact.address.postcode,
+            linkToPet: identity.fullProfile.url,
+            photo: identity.fullProfile.primary_photo_cropped.large,
+          },
+        });
+        const { data2} = await addPetToFave({
+          variables:{
+            petId: identity.fullProfile.id,
+            username: username
+          }
+        })
+      } catch (e) {
+        console.error(e);
+      }
+    }
     setLastDirection(direction);
     alreadyRemoved.push(nameToDelete);
   };
 
   const outOfFrame = (name) => {
-    console.log(name + ' left the screen!');
+    console.log(name + " left the screen!");
     charactersState = charactersState.filter(
       (character) => character.name !== name
     );
@@ -156,7 +199,7 @@ const Advanced = () => {
   };
 
   // setTimeout(() => setCharacters(dbAPI), 1000);
-  console.log('characters!!!', characters);
+  // console.log('characters!!!', characters);
   const undo = () => {};
 
   return (
@@ -169,7 +212,7 @@ const Advanced = () => {
             <TinderCard
               ref={childRefs[index]}
               key={index}
-              onSwipe={(dir) => swiped(dir, character.name)}
+              onSwipe={(dir) => swiped(dir, character.name, character)}
               onCardLeftScreen={() => outOfFrame(character.name)}
             >
               <Card>
@@ -182,31 +225,31 @@ const Advanced = () => {
         </CardContainer>
 
         <div
-          className='newButton'
+          className="newButton"
           style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            width: '200px',
+            display: "flex",
+            justifyContent: "space-between",
+            width: "200px",
           }}
         >
           <Button
-            onPress={() => swipe('left')}
+            onPress={() => swipe("left")}
             title={
               <ion-icon
-                name='heart-dislike'
-                className='heart'
-                style={{ color: '#A3A7AE' }}
+                name="heart-dislike"
+                className="heart"
+                style={{ color: "#A3A7AE" }}
               ></ion-icon>
             }
           />
           
           <Button
-            onPress={() => swipe('right')}
+            onPress={() => swipe("right")}
             title={
               <ion-icon
-                name='heart'
-                className='cross-heart'
-                style={{ color: '#fffff' }}
+                name="heart"
+                className="cross-heart"
+                style={{ color: "#D84343" }}
               ></ion-icon>
             }
           />
