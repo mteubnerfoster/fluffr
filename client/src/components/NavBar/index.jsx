@@ -81,15 +81,15 @@ const NavBar = () => {
               </Link>
             </li> */}
             <li>
-              <Link to="/about">
-                {" "}
-                <ion-icon name="mail-outline" size="large"></ion-icon>
+              <Link to='/search'>
+                {' '}
+                <ion-icon name="search-outline" size="large"></ion-icon>
               </Link>
             </li>
             <li>
-              <Link to="/search">
-                {" "}
-                <ion-icon name="search-outline" size="large"></ion-icon>
+              <Link to='/about'>
+                {' '}
+                <ion-icon name="help-circle-outline" size="large"></ion-icon>
               </Link>
             </li>
             <li>

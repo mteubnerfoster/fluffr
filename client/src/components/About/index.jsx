@@ -8,31 +8,31 @@ const About = () => {
   const team = [
     {
       name: "Joseph",
-      details: "dsjfljslfk;jslfjk;lsaflkjs;lfj;lsf",
+      details: "I'm a student in the UW Coding Bootcamp learning web development to further my career in big tech.",
       github: "https://github.com/joecliffordofficial",
       profile: 'https://www.linkedin.com/in/joe-clifford/',
     },
     {
       name: "Megan",
-      details: "dsjfljslfk;jslfjk;lsaflkjs;lfj;lsf",
+      details: "I'm Megan, and I have an unhealthy obsession with my cat, Steven Universe, and anything Final Fantasy. Ask me about technical writing and knowledge management!",
       github: "https://www.github.com/mteubnerfoster",
       profile: 'https://www.linkedin.com/in/mteubnerfoster',
     },
     {
       name: "Troy",
-      details: "dsjfljslfk;jslfjk;lsaflkjs;lfj;lsf",
+      details: "lsf",
       github: "https://github.com/troywiegel",
       profile: 'https://www.linkedin.com/in/troywiegel/',
     },
     {
       name: "Kevin",
-      details: 'aldghjapoietgna;skdlg',
+      details: 'skdlg',
       github: 'https://github.com/Cosdaman',
       profile: 'https://www.linkedin.com/in/kevin-jc-ang/',
     },
     {
       name: "Brian",
-      details: 'alkdsjgoasejn',
+      details: 'I am a passionate front-end engineer with expertise across the full-stack. I love learning. I create solutions remotely & on-site.',
       github: 'https://github.com/bravotango',
       profile: 'https://www.linkedin.com/in/btgraphix/',
     }
