@@ -7,6 +7,9 @@ import Login from './components/Login';
 import LandingPage from './components/LandingPage';
 import Search from './components/Search';
 import Locaiton from './components/Location';
+import Footer from './components/Footer';
+import About from './components/About';
+
 
 import { ApolloClient, ApolloProvider, InMemoryCache, createHttpLink } from '@apollo/client';
 
@@ -43,9 +46,11 @@ function App() {
             <Route exact path='/login' component={Login} />
             <Route exact path='/search' component={Search} />
             <Route exact path='/location' component={Locaiton} />
+            <Route exact path='/about' component={About} />
           </Switch>
         </div>
       </Router>
+      <Footer />
     </ApolloProvider>
   );
 }

@@ -14,10 +14,6 @@ Button {
     /* background-color: red !important; */
 }
 
-Button .btn .heart {
-    /* color: red !important; */
-}
-
 .button .btn-primary .cross-heart {
     color: black !important;
 }
@@ -39,4 +35,8 @@ Button .btn .heart {
 
 .r-borderRadius-1jkafct {
     border-radius: 20px;
+}
+
+.r-boxShadow-1cosk8v {
+    box-shadow: none;
 }

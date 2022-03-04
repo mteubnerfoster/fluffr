@@ -84,6 +84,7 @@ const Advanced = () => {
   const [addPetToFave, { errorF, dataF }] = useMutation(ADD_PET_TO_USER_FAVE);
 
   useEffect(async () => {
+      console.log('USE EFFECT ABOUT TOHAAPPEN!!')
     const getAnimals = async () => {
       return client.animal.search({
         // type: 'Cat',
@@ -93,6 +94,8 @@ const Advanced = () => {
     try {
       const response = await getAnimals();
       setAnimals(response.data.animals);
+
+ 
     } catch (err) {
       console.log("Err!!!!", err);
     }
@@ -111,6 +114,14 @@ const Advanced = () => {
       dbAPI.push(animalWithPhoto);
     }
   });
+
+   const childRefs = useMemo(
+        () =>
+          Array(100)
+            .fill(0)
+            .map((i) => React.createRef()),
+        []
+      );
 
   const [characters, setCharacters] = useState([]);
   const [lastDirection, setLastDirection] = useState();
@@ -181,6 +192,8 @@ const Advanced = () => {
       const toBeRemoved = cardsLeft[cardsLeft.length - 1].name; // Find the card object to be removed
       const index = dbAPI.map((person) => person.name).indexOf(toBeRemoved); // Find the index of which to make the reference to
       alreadyRemoved.push(toBeRemoved); // Make sure the next card gets removed next time if this card do not have time to exit the screen
+      console.log('child ref ting before err', childRefs)
+      console.log('Indiex right before err', index)
       childRefs[index].current.swipe(dir); // Swipe the card!
     }
   };
@@ -229,12 +242,7 @@ const Advanced = () => {
               ></ion-icon>
             }
           />
-          {/* <Button
-            onClick={() => undo()}
-            title={
-              <ion-icon name="arrow-undo" className="arrow-undo"></ion-icon>
-            }
-          /> */}
+          
           <Button
             onPress={() => swipe("right")}
             title={
@@ -255,6 +263,7 @@ const Advanced = () => {
           </InfoText>
         )}
       </Container>
+      <Footer />
     </div>
   );
 };
