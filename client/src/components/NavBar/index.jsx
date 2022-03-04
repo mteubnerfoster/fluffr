@@ -1,7 +1,8 @@
-import { Link } from 'react-router-dom';
-import './style.css';
-import { useEffect, useState } from 'react';
-import {Button} from 'react-bootstrap';
+import { Link } from "react-router-dom";
+import "./style.css";
+import { useEffect, useState } from "react";
+import { Button } from "react-bootstrap";
+import Auth from "../../utils/auth";
 
 const NavBar = () => {
   const [open, setOpen] = useState(false);
@@ -17,50 +18,60 @@ const NavBar = () => {
 
   useEffect(() => {
     trackScreenWidth();
-    window.addEventListener('resize', trackScreenWidth);
-    return () => window.removeEventListener('resize', trackScreenWidth);
+    window.addEventListener("resize", trackScreenWidth);
+    return () => window.removeEventListener("resize", trackScreenWidth);
   }, []);
+  let logInLink;
+  if (Auth.loggedIn()) {
+    logInLink = "/logout";
+  } else {
+    logInLink = "/login";
+  }
 
   return (
-    <nav className='navbar'>
-      <div className='nav-wrapper'>
-        <div className='logo'>
-          <Link to='/'>
+    <nav className="navbar">
+      <div className="nav-wrapper">
+        <div className="logo">
+          <Link to="/">
             <img
               src={`${process.env.PUBLIC_URL}/fluffr-logo-circle.png`}
-              alt='brand'
-              className='logo'
+              alt="brand"
+              className="logo"
             />
           </Link>
         </div>
-        <div className='list-wrapper'>
+        <div className="list-wrapper">
           <img
-            src='https://github.com/DwinaTech/public-images/blob/main/menu-bars.png?raw=true'
-            alt='menu bars'
+            src="https://github.com/DwinaTech/public-images/blob/main/menu-bars.png?raw=true"
+            alt="menu bars"
             style={{ opacity: !open ? 1 : 0 }}
             onClick={() => {
               setOpen(!open);
             }}
           />
           <img
-            src='https://github.com/DwinaTech/public-images/blob/main/cross-menu-icon.png?raw=true'
-            alt='menu cross'
+            src="https://github.com/DwinaTech/public-images/blob/main/cross-menu-icon.png?raw=true"
+            alt="menu cross"
             style={{ opacity: open ? 1 : 0 }}
             onClick={() => {
               setOpen(!open);
             }}
           />
-          <ul style={{ left: open ? '0' : '-100vw' }}>
+          <ul style={{ left: open ? "0" : "-100vw" }}>
             <li>
-              <Link to='/home'>
-                {' '}
-                <ion-icon name="home-outline" size="large" fontSize="70px"></ion-icon>
-                </Link>
+              <Link to="/home">
+                {" "}
+                <ion-icon
+                  name="home-outline"
+                  size="large"
+                  fontSize="70px"
+                ></ion-icon>
+              </Link>
             </li>
             <li>
-              <Link to='/profile'>
-                {' '}
-                <ion-icon name='person-outline' size="large"></ion-icon>
+              <Link to="/profile">
+                {" "}
+                <ion-icon name="person-outline" size="large"></ion-icon>
               </Link>
             </li>
             {/* <li>
@@ -70,20 +81,20 @@ const NavBar = () => {
               </Link>
             </li> */}
             <li>
-              <Link to='/about'>
-                {' '}
+              <Link to="/about">
+                {" "}
                 <ion-icon name="mail-outline" size="large"></ion-icon>
               </Link>
             </li>
             <li>
-              <Link to='/search'>
-                {' '}
+              <Link to="/search">
+                {" "}
                 <ion-icon name="search-outline" size="large"></ion-icon>
               </Link>
             </li>
             <li>
-              <Link to='/login'>
-                {' '}
+              <Link to={logInLink} onClick={checkIfLoggedIn}>
+                {" "}
                 <ion-icon name="power-outline" size="large"></ion-icon>
               </Link>
             </li>
@@ -93,5 +104,11 @@ const NavBar = () => {
     </nav>
   );
 };
+
+function checkIfLoggedIn() {
+  if (Auth.loggedIn) {
+    Auth.logout();
+  }
+}
 
 export default NavBar;
