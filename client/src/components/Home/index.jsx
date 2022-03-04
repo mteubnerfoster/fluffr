@@ -86,7 +86,6 @@ const Advanced = () => {
   const [addPetToFave, { errorF, dataF }] = useMutation(ADD_PET_TO_USER_FAVE);
 
   useEffect(async () => {
-    console.log("USE EFFECT ABOUT TOHAAPPEN!!");
 
     const getAnimals = async () => {
       return client.animal.search({
@@ -103,7 +102,6 @@ const Advanced = () => {
   }, []);
 
   const dbAPI = [];
-  // console.log('Animals@!!! beofre map ********', animals);
   animals.map((animal) => {
     if (animal.photos[0]?.medium) {
       let animalWithPhoto = {
@@ -111,7 +109,6 @@ const Advanced = () => {
         img: animal.photos[0]?.medium,
         fullProfile: animal,
       };
-      // console.log('animalwithPHotos!!!!', animalWithPhoto);
       dbAPI.push(animalWithPhoto);
     }
   });
@@ -133,15 +130,9 @@ const Advanced = () => {
   const alreadyRemoved = [];
   let charactersState = dbAPI;
   // This fixes issues with updating characters state forcing it to use the current state and not the state that was active when the card was created.
-  // console.log('characters!!!', characters);
-  // console.log('dbAPI!!!', dbAPI);
 
   const swiped = async (direction, nameToDelete, identity) => {
-    console.log('removing: ' + nameToDelete + ' to the ' + direction);
     if (direction == 'right') {
-      console.log(identity.fullProfile);
-      console.log('right swipe');
-      console.log(Auth.getProfile().data);
       let username = Auth.getProfile().data.username;
       try {
         const { data } = await addPet({
@@ -175,7 +166,6 @@ const Advanced = () => {
   };
 
   const outOfFrame = (name) => {
-    console.log(name + ' left the screen!');
     charactersState = charactersState.filter(
       (character) => character.name !== name
     );
@@ -199,7 +189,6 @@ const Advanced = () => {
   };
 
   // setTimeout(() => setCharacters(dbAPI), 1000);
-  // console.log('characters!!!', characters);
   const undo = () => {};
 
   return (
