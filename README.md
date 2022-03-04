@@ -1,5 +1,5 @@
 # Fluffr: Find Your Furever Friend
-Project 3 for U of W Coding Boot Camp
+Welcome to Fluffr, where you can find your furever friend!
 
 ## Table of Contents
 - [Getting Started](#getting_started)
@@ -18,34 +18,29 @@ This app will assist users in finding their perfect rescue pet, in a similar sty
 
 ## User Story
 ```
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
-numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
-optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis
-obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam
-nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit,
-tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit,
-quia. Quo neque error repudiandae fuga? Ipsa laudantium molestias eos 
-sapiente officiis modi at sunt excepturi expedita sint? Sed quibusdam
-recusandae alias error harum maxime adipisci amet laborum.
+As an animal lover with room in my home and heart, I want to see what rescue pets are available in my area so that I can find my furever friend.
 ```
 
 ## Technologies
 This application was created using:
 - [Javascript](https://www.javascript.com/)
-- [bcrypt](https://www.npmjs.com/package/bcrypt)
-- [connect-session-sequelize](https://www.npmjs.com/package/connect-session-sequelize)
-- [dotenv](https://www.npmjs.com/package/dotenv)
-- [Express](https://www.npmjs.com/package/express)
-- [express-handlebars](https://www.npmjs.com/package/express-handlebars)
-- [express-session](https://www.npmjs.com/package/express-session)
-- [MySql2](https://www.npmjs.com/package/mysql2)
-- [Sequelize](https://www.npmjs.com/package/sequelize)
-- [Petfinder API](https://www.npmjs.com/package/yelp-fusion)
-
+- [apollo-server-express](https://www.npmjs.com/package/apollo-server-express)
+- [bootstrap](https://getbootstrap.com/docs/5.1/getting-started/introduction/)
+- [concurrently](https://www.npmjs.com/package/concurrently)
+- [graphQL](https://graphql.org/graphql-js/)
+- [jwt-decode](https://www.npmjs.com/package/jwt-decode)
+- [pet-finder-api](https://www.npmjs.com/package/pet-finder-api)
+- [petfinder-js](https://www.npmjs.com/package/@petfinder/petfinder-js)
+- [react](https://www.npmjs.com/package/react)
+- [react-bootstrap](https://www.npmjs.com/package/react-bootstrap)
+- [react-tinder-card](https://www.npmjs.com/package/react-tinder-card)
+- [styled-components](https://www.npmjs.com/package/styled-components)
+- [web-vitals](https://www.npmjs.com/package/web-vitals)
+- [Canva](https://www.canva.com/)
+- [Leonardo](https://www.getleonardo.com/)
 
 ## Examples
-Check out [Fluffr - not a live link](https://) <br>
+Check out [Fluffr](https://fluffr.herokuapp.com) <br>
 Photos of the homepage: <br>
 ![Photo 1 Description](photolink) <br>
 
