@@ -7,15 +7,22 @@ import Photo from "../../data/fluffr-logo-heart-inverted-iii.png";
 import Auth from "../../utils/auth";
 import { QUERY_ME } from "../../utils/queries";
 import { useQuery } from "@apollo/client";
+import { Redirect} from 'react-router-dom';
 
 export const Profile = () => {
-  // const { loading, data } = useQuery(QUERY_ME);
+  const { loading, data } = useQuery(QUERY_ME);
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
-  // if (loading) {
-  //   return <div>Loading...</div>;
-  // }
-  // let favedPets = data.me.favoritePets;
-  // console.log(favedPets);
+  if (Auth.loggedIn()) {
+      if (data.me) {
+        let favedPets = data.me.favoritePets;
+        console.log(favedPets);
+      }
+  }else{
+    return <Redirect to="/login" />;
+  }
 
   const pets = [
     {
