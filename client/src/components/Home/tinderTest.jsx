@@ -131,13 +131,6 @@ const Advanced = () => {
   // console.log('characters!!!', characters);
   // console.log('dbAPI!!!', dbAPI);
 
-  const childRefs = useMemo(
-    () =>
-      Array(dbAPI.length)
-        .fill(0)
-        .map((i) => React.createRef()),
-    []
-  );
   const swiped = async (direction, nameToDelete, identity) => {
     console.log("removing: " + nameToDelete + " to the " + direction);
     if (direction == "right") {
