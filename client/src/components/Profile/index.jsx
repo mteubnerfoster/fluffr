@@ -38,7 +38,7 @@ export const Profile = () => {
                 className="card col-sm-12 col-md-3 col-lg-3 m-1 text-white bg-black bg-opacity-25"
                 key={index}
               >
-                <img id="petPhoto"
+                <img className="img-fluid"
                   src={pet.photo}
                   className="card-img-top"
                   alt="animal up for adoption"
