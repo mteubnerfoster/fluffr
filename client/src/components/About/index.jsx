@@ -40,8 +40,8 @@ const About = () => {
 
   return (
     <>
-      <Header />
       <NavBar />
+      <Header />
       <div className="container">
         <div className="row d-flex justify-content-evenly">
           {team.map((team, index) => {
