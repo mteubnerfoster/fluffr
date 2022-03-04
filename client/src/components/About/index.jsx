@@ -20,13 +20,13 @@ const About = () => {
     },
     {
       name: "Troy",
-      details: "lsf",
+      details: "I am a full stack developer who loves to learn and create.",
       github: "https://github.com/troywiegel",
       profile: 'https://www.linkedin.com/in/troywiegel/',
     },
     {
       name: "Kevin",
-      details: 'skdlg',
+      details: 'Full Stack Developer, life long learner, gamer.',
       github: 'https://github.com/Cosdaman',
       profile: 'https://www.linkedin.com/in/kevin-jc-ang/',
     },
