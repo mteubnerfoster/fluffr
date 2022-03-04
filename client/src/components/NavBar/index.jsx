@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import './style.css';
 import { useEffect, useState } from 'react';
+import {Button} from 'react-bootstrap';
 
 const NavBar = () => {
   const [open, setOpen] = useState(false);
@@ -62,12 +63,12 @@ const NavBar = () => {
                 <ion-icon name='person-outline' size="large"></ion-icon>
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link to='/location'>
                 {' '}
                 <ion-icon name='location-outline' size="large"></ion-icon>
               </Link>
-            </li>
+            </li> */}
             <li>
               <Link to='/about'>
                 {' '}
@@ -78,6 +79,12 @@ const NavBar = () => {
               <Link to='/search'>
                 {' '}
                 <ion-icon name="search-outline" size="large"></ion-icon>
+              </Link>
+            </li>
+            <li>
+              <Link to='/login'>
+                {' '}
+                <ion-icon name="power-outline" size="large"></ion-icon>
               </Link>
             </li>
           </ul>
