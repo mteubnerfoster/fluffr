@@ -13,8 +13,14 @@ Welcome to Fluffr, where you can find your furever friend!
 ## Getting Started
 Users can utilize any common internet browser with Javascript enabled to access the Fluffr site.
 
+- To get started, users can go to the landing page of the site and click 'Get Started'. 
+- From there, new users and users who are not signed in will be taken to a sign in/sign up page.
+- New users can then sign up with an email address, username, and password, or returning users can sign in with their email and password.
+- Once the user is signed up or signed in, they will be taken to the home page where the real fun begins: They can begin swiping right for pets they want to learn more about, or left for those they do not.
+- Users can see their right-swiped furry friends by clicking on the User icon, where their 'yes'-es are stored.
+
 ## About
-This app will assist users in finding their perfect rescue pet, in a similar style to the popular dating app Tindr.
+This app will assist users in finding their perfect rescue pet, in a similar style to the popular dating app Tinder.
 
 ## User Story
 ```
