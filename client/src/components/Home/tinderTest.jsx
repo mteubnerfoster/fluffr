@@ -7,6 +7,7 @@ import NavBar from "../NavBar";
 import { ADD_PET_TO_DB, ADD_PET_TO_USER_FAVE } from "../../utils/mutations";
 import { useMutation } from "@apollo/client";
 import Auth from "../../utils/auth";
+import Footer from "../Footer";
 
 var petfinder = require("@petfinder/petfinder-js");
 
@@ -77,14 +78,13 @@ const InfoText = styled.Text`
   z-index: -100;
 `;
 
-
 const Advanced = () => {
   const [animals, setAnimals] = useState([]);
   const [addPet, { error, data }] = useMutation(ADD_PET_TO_DB);
   const [addPetToFave, { errorF, dataF }] = useMutation(ADD_PET_TO_USER_FAVE);
 
   useEffect(async () => {
-      console.log('USE EFFECT ABOUT TOHAAPPEN!!')
+    console.log("USE EFFECT ABOUT TOHAAPPEN!!");
     const getAnimals = async () => {
       return client.animal.search({
         // type: 'Cat',
@@ -94,8 +94,6 @@ const Advanced = () => {
     try {
       const response = await getAnimals();
       setAnimals(response.data.animals);
-
- 
     } catch (err) {
       console.log("Err!!!!", err);
     }
@@ -115,13 +113,13 @@ const Advanced = () => {
     }
   });
 
-   const childRefs = useMemo(
-        () =>
-          Array(100)
-            .fill(0)
-            .map((i) => React.createRef()),
-        []
-      );
+  const childRefs = useMemo(
+    () =>
+      Array(100)
+        .fill(0)
+        .map((i) => React.createRef()),
+    []
+  );
 
   const [characters, setCharacters] = useState([]);
   const [lastDirection, setLastDirection] = useState();
@@ -137,7 +135,7 @@ const Advanced = () => {
       console.log(identity.fullProfile);
       console.log("right swipe");
       console.log(Auth.getProfile().data);
-      let username = Auth.getProfile().data.username
+      let username = Auth.getProfile().data.username;
       try {
         const { data } = await addPet({
           variables: {
@@ -155,12 +153,12 @@ const Advanced = () => {
             photo: identity.fullProfile.primary_photo_cropped.large,
           },
         });
-        const { data2} = await addPetToFave({
-          variables:{
+        const { data2 } = await addPetToFave({
+          variables: {
             petId: identity.fullProfile.id,
-            username: username
-          }
-        })
+            username: username,
+          },
+        });
       } catch (e) {
         console.error(e);
       }
@@ -185,8 +183,8 @@ const Advanced = () => {
       const toBeRemoved = cardsLeft[cardsLeft.length - 1].name; // Find the card object to be removed
       const index = dbAPI.map((person) => person.name).indexOf(toBeRemoved); // Find the index of which to make the reference to
       alreadyRemoved.push(toBeRemoved); // Make sure the next card gets removed next time if this card do not have time to exit the screen
-      console.log('child ref ting before err', childRefs)
-      console.log('Indiex right before err', index)
+      console.log("child ref ting before err", childRefs);
+      console.log("Indiex right before err", index);
       childRefs[index].current.swipe(dir); // Swipe the card!
     }
   };
@@ -235,7 +233,7 @@ const Advanced = () => {
               ></ion-icon>
             }
           />
-          
+
           <Button
             onPress={() => swipe("right")}
             title={
