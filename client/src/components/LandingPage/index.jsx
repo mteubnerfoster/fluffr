@@ -1,9 +1,16 @@
 import "./style.css";
-import { Link } from "react-router-dom";
+import Auth from "../../utils/auth";
+import { Link, Redirect } from "react-router-dom";
 import logo from "../../data/fluffr-logo-heart-inverted-iii.png";
 import heroVid from "../../data/dog-hero-video.mp4";
 
 const LandingPage = () => {
+  if (Auth.loggedIn()) {
+    return <Redirect to="/home" />;
+  } else {
+    return <Redirect to="/login" />;
+  }
+
   return (
     <>
       <section className="container img-fluid d-flex flex-column justify-content-around landingPageContainer">
