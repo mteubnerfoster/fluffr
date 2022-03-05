@@ -5,10 +5,13 @@ import Footer from "../Footer";
 import Header from "../Header";
 import Auth from "../../utils/auth";
 import { QUERY_ME } from "../../utils/queries";
-import { useQuery } from "@apollo/client";
+import { REMOVE_PET_FROM_FAVE } from "../../utils/mutations";
+import { useQuery, useMutation } from "@apollo/client";
 import { Redirect } from "react-router-dom";
 
 export const Profile = () => {
+  const [removePet, { error, deleteData }] = useMutation(REMOVE_PET_FROM_FAVE);
+
   let pet;
 
   const { loading, data } = useQuery(QUERY_ME);
@@ -19,11 +22,21 @@ export const Profile = () => {
   if (Auth.loggedIn()) {
     if (data.me) {
       pet = data.me.favoritePets;
-      console.log(pet);
     }
   } else {
     return <Redirect to="/login" />;
   }
+
+  const deletePet = async (e) => {
+    let username = Auth.getProfile().data.username;
+    const { data2 } = await removePet({
+      variables: {
+        petId: pet[e.target.name].petId,
+        username: username,
+      },
+    });
+    window.location.reload();
+  };
 
   return (
     <>
@@ -37,9 +50,9 @@ export const Profile = () => {
                 className="card col-sm-12 col-md-3 col-lg-3 m-1 text-white bg-black bg-opacity-25"
                 key={index}
               >
-                <img className="img-fluid"
+                <img
+                  className="img-fluid card-img-top"
                   src={pet.photo}
-                  className="card-img-top"
                   alt="animal up for adoption"
                 />
                 <div className="card-body">
@@ -53,6 +66,13 @@ export const Profile = () => {
                   >
                     Adopt Me!
                   </a>
+                  <button
+                    onClick={deletePet}
+                    className="btn btn-danger text-white"
+                    name={index}
+                  >
+                    Remove me
+                  </button>
                 </div>
               </div>
             );
