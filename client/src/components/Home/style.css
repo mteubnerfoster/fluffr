@@ -1,9 +1,10 @@
 body {
-    background-color: rgba(178, 108, 219, 0.575) !important;
-    opacity: 1;
+  background-color: rgba(178, 108, 219, 0.575) !important;
+  opacity: 1;
 }
 
-Button {
+/* FUTURE FEATURE: Buttons so that users can either swipe or click */
+/* Button {
     display: inline-block !important;
     align-items: center !important;
     color: rgb(95, 7, 146) !important;
@@ -12,7 +13,7 @@ Button {
 .button {
     display: inline-block !important;
     /* background-color: red !important; */
-}
+/* }
 
 .button .btn-primary .cross-heart {
     color: black !important;
@@ -22,21 +23,19 @@ Button {
     color: black !important;
 }
 
-.newButton {
+// * .newButton {
     /* background-color: red !important; */
-    display: flex !important;
-    margin-top: 10px;
-}
+/* display: flex !important;
+    margin-top: 10px; } */
 
 .r-backgroundColor-14sbq61 {
-    background: rgb(220, 53, 69, 0.75) !important;
-
+  background: rgb(220, 53, 69, 0.75) !important;
 }
 
 .r-borderRadius-1jkafct {
-    border-radius: 20px;
+  border-radius: 20px;
 }
 
 .r-boxShadow-1cosk8v {
-    box-shadow: none;
+  box-shadow: none;
 }

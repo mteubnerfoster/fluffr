@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useEffect } from "react";
-import { Button } from "react-native";
+// import { Button } from "react-native"; FUTURE FEATURE
 import styled from "styled-components/native";
 import TinderCard from "react-tinder-card";
 import { Redirect } from "react-router-dom";
@@ -11,7 +11,7 @@ import Auth from "../../utils/auth";
 import Footer from "../Footer";
 import Header from "../Header";
 
-var petfinder = require('@petfinder/petfinder-js');
+var petfinder = require("@petfinder/petfinder-js");
 
 var client = new petfinder.Client({
   apiKey: process.env.REACT_APP_API_KEY,
@@ -65,13 +65,13 @@ const CardTitle = styled.Text`
   color: #fff;
 `;
 
-const Buttons = styled.View`
-  margin: 30px;
-  z-index: -100;
-  display: inline-block;
-  color: red !important;
-  border-radius: 20px;
-`;
+// const Buttons = styled.View`
+//   margin: 30px;
+//   z-index: -100;
+//   display: inline-block;
+//   color: red !important;
+//   border-radius: 20px;
+// `;
 
 const InfoText = styled.Text`
   height: 28px;
@@ -86,7 +86,6 @@ const Advanced = () => {
   const [addPetToFave, { errorF, dataF }] = useMutation(ADD_PET_TO_USER_FAVE);
 
   useEffect(async () => {
-
     const getAnimals = async () => {
       return client.animal.search({
         // type: 'Cat',
@@ -97,7 +96,7 @@ const Advanced = () => {
       const response = await getAnimals();
       setAnimals(response.data.animals);
     } catch (err) {
-      console.log('Err!!!!', err);
+      console.log("Err!!!!", err);
     }
   }, []);
 
@@ -132,7 +131,7 @@ const Advanced = () => {
   // This fixes issues with updating characters state forcing it to use the current state and not the state that was active when the card was created.
 
   const swiped = async (direction, nameToDelete, identity) => {
-    if (direction == 'right') {
+    if (direction == "right") {
       let username = Auth.getProfile().data.username;
       try {
         const { data } = await addPet({
@@ -151,6 +150,7 @@ const Advanced = () => {
             photo: identity.fullProfile.primary_photo_cropped.large,
           },
         });
+
         const { data2 } = await addPetToFave({
           variables: {
             petId: identity.fullProfile.id,
@@ -161,6 +161,7 @@ const Advanced = () => {
         console.error(e);
       }
     }
+
     setLastDirection(direction);
     alreadyRemoved.push(nameToDelete);
   };
@@ -176,11 +177,12 @@ const Advanced = () => {
     const cardsLeft = characters.filter(
       (person) => !alreadyRemoved.includes(person.name)
     );
+
     if (cardsLeft.length) {
       const toBeRemoved = cardsLeft[cardsLeft.length - 1].name; // Find the card object to be removed
       const index = dbAPI.map((person) => person.name).indexOf(toBeRemoved); // Find the index of which to make the reference to
       alreadyRemoved.push(toBeRemoved); // Make sure the next card gets removed next time if this card do not have time to exit the screen
-      
+
       console.log("child ref ting before err", childRefs);
       console.log("Indiex right before err", index);
 
@@ -213,7 +215,8 @@ const Advanced = () => {
           ))}
         </CardContainer>
 
-        <div
+        {/* FUTURE FEATURE: Buttons to go with swipes so users can do either */}
+        {/* <div
           className='newButton'
           style={{
             display: 'flex',
@@ -242,14 +245,12 @@ const Advanced = () => {
               ></ion-icon>
             }
           />
-        </div>
+        </div> */}
 
         {lastDirection ? (
           <InfoText key={lastDirection}>You swiped {lastDirection}</InfoText>
         ) : (
-          <InfoText>
-            Swipe right or left, or click a button to get started!
-          </InfoText>
+          <InfoText>Swipe right or left to get started!</InfoText>
         )}
       </Container>
       <Footer />

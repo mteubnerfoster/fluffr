@@ -1,16 +1,16 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
 export const FIND_PET = gql`
-query pet($petId: Int!){
-    pet(petId:$petId){
-        petId
-        name
+  query pet($petId: Int!) {
+    pet(petId: $petId) {
+      petId
+      name
     }
   }
 `;
 
 export const FIND_USER = gql`
-query($username: String!) {
+  query ($username: String!) {
     user(username: $username) {
       username
       email
@@ -19,7 +19,7 @@ query($username: String!) {
         name
       }
     }
-  } 
+  }
 `;
 
 export const QUERY_ME = gql`
@@ -27,7 +27,7 @@ export const QUERY_ME = gql`
     me {
       _id
       username
-      favoritePets{
+      favoritePets {
         petId
         name
         age

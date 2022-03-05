@@ -1,7 +1,7 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
 export const ADD_USER = gql`
-mutation addUser($username: String!, $email: String!, $password: String!) {
+  mutation addUser($username: String!, $email: String!, $password: String!) {
     addUser(username: $username, email: $email, password: $password) {
       token
       user {
@@ -9,7 +9,6 @@ mutation addUser($username: String!, $email: String!, $password: String!) {
       }
     }
   }
-  
 `;
 
 export const LOGIN_USER = gql`
@@ -25,57 +24,56 @@ export const LOGIN_USER = gql`
 `;
 
 export const ADD_PET_TO_DB = gql`
-mutation addPet(
-  $petId: Int!
-  $name: String!
-  $age: String
-  $gender: String
-  $species: String
-  $breed: String
-  $country: String
-  $state: String
-  $city: String
-  $zipCode: String
-  $linkToPet: String!
-  $photo: String
-) {
-  addPet(
-    petId: $petId
-    name: $name
-    age: $age
-    gender: $gender
-    species: $species
-    breed: $breed
-    country: $country
-    state: $state
-    city: $city
-    zipCode: $zipCode
-    linkToPet: $linkToPet
-    photo: $photo
+  mutation addPet(
+    $petId: Int!
+    $name: String!
+    $age: String
+    $gender: String
+    $species: String
+    $breed: String
+    $country: String
+    $state: String
+    $city: String
+    $zipCode: String
+    $linkToPet: String!
+    $photo: String
   ) {
-    petId
-    name
-    linkToPet
+    addPet(
+      petId: $petId
+      name: $name
+      age: $age
+      gender: $gender
+      species: $species
+      breed: $breed
+      country: $country
+      state: $state
+      city: $city
+      zipCode: $zipCode
+      linkToPet: $linkToPet
+      photo: $photo
+    ) {
+      petId
+      name
+      linkToPet
+    }
   }
-}
 `;
 
 export const ADD_PET_TO_USER_FAVE = gql`
-mutation addToUserFave($petId: Int!, $username: String!) {
-  addToUserFave(petId: $petId, username: $username) {
-    favoritePets {
-      _id
+  mutation addToUserFave($petId: Int!, $username: String!) {
+    addToUserFave(petId: $petId, username: $username) {
+      favoritePets {
+        _id
+      }
     }
   }
-}
-
 `;
 
 export const REMOVE_PET_FROM_FAVE = gql`
-mutation removePet($petId: Int!, $username: String!) {
-  removePet(petId: $petId, username: $username) {
-    petId
-    name
+  mutation removePet($petId: Int!, $username: String!) {
+    removePet(petId: $petId, username: $username) {
+      petId
+      name
+    }
   }
-}
-`
+`;

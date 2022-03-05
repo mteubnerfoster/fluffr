@@ -14,7 +14,7 @@ const LandingPage = () => {
         <div className="card col-sm-6 col-md-4 col-lg-2 align-self-center rounded-pill text-light bg-danger bg-opacity-75">
           <div className="card-body lpName">
             <h5 className="card-title lpNameHeader">Fluffr</h5>
-            <p className="card-text lpNameP">find your furever friend</p>
+            <p className="card-text lpNameP">Find Your Furever Friend</p>
           </div>
         </div>
 
