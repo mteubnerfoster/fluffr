@@ -2,11 +2,8 @@ import React, { useState } from "react";
 import Header from "../Header";
 import NavBar from "../NavBar";
 import Footer from "../Footer";
-
 import { useMutation } from "@apollo/client";
-
 import { ADD_USER, LOGIN_USER } from "../../utils/mutations";
-
 import Auth from "../../utils/auth";
 
 const Login = () => {
@@ -34,12 +31,16 @@ const Login = () => {
         username: formState.username,
         password: formState.password,
       };
+
       console.log("Call login mutation with ", payload);
+
       try {
         const { data } = await login({
           variables: { ...payload },
         });
+
         console.log(data);
+
         Auth.login(data.login.token);
       } catch (e) {
         console.error(e);
@@ -51,12 +52,16 @@ const Login = () => {
         password: formState.password,
         email: formState.email,
       };
+
       console.log("Call signup mutation with ", payload);
+
       try {
         const { data } = await addUser({
           variables: { ...payload },
         });
+
         console.log(data);
+
         Auth.login(data.addUser.token);
       } catch (e) {
         console.error(e);
@@ -98,6 +103,7 @@ const Login = () => {
                   <label htmlFor="password-login" className="form-label">
                     {formState.login ? "Password" : "Create Password"}
                   </label>
+
                   <input
                     type="password"
                     className="form-control"
@@ -107,6 +113,7 @@ const Login = () => {
                     minLength="8"
                     onChange={handleOnChange}
                   />
+
                   {!formState.login && (
                     <div id="passwordHelp" className="form-text">
                       Password must be 8 characters long.
@@ -119,6 +126,7 @@ const Login = () => {
                     <label htmlFor="email-signup" className="form-label">
                       Email address
                     </label>
+
                     <input
                       type="email"
                       className="form-control"
@@ -128,14 +136,17 @@ const Login = () => {
                       value={formState.email}
                       onChange={handleOnChange}
                     />
+
                     <div id="emailHelp" className="form-text">
                       We'll never share your email with anyone else.
                     </div>
                   </div>
                 )}
+
                 <button type="submit" className="btn me-3 text-light bg-danger">
                   {formState.login ? "Login" : "Create Account"}
                 </button>
+
                 <a
                   href="#"
                   onClick={(e) =>

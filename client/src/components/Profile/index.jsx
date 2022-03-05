@@ -55,6 +55,7 @@ export const Profile = () => {
                   src={pet.photo}
                   alt="animal up for adoption"
                 />
+
                 <div className="card-body">
                   <h5 className="card-title">{pet.name}</h5>
                   <p className="card-text">{pet.breed}</p>
@@ -66,12 +67,13 @@ export const Profile = () => {
                   >
                     Adopt Me!
                   </a>
+
                   <button
                     onClick={deletePet}
                     className="btn btn-danger text-white"
                     name={index}
                   >
-                    Remove me
+                    Remove
                   </button>
                 </div>
               </div>

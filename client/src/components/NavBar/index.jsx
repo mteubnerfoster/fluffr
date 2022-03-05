@@ -40,6 +40,7 @@ const NavBar = () => {
             />
           </Link>
         </div>
+
         <div className="list-wrapper">
           <img
             src="https://github.com/DwinaTech/public-images/blob/main/menu-bars.png?raw=true"
@@ -49,6 +50,7 @@ const NavBar = () => {
               setOpen(!open);
             }}
           />
+
           <img
             src="https://github.com/DwinaTech/public-images/blob/main/cross-menu-icon.png?raw=true"
             alt="menu cross"
@@ -57,6 +59,7 @@ const NavBar = () => {
               setOpen(!open);
             }}
           />
+
           <ul style={{ left: open ? "0" : "-100vw" }}>
             <li>
               <Link to="/home">
@@ -68,30 +71,35 @@ const NavBar = () => {
                 ></ion-icon>
               </Link>
             </li>
+
             <li>
               <Link to="/profile">
                 {" "}
                 <ion-icon name="person-outline" size="large"></ion-icon>
               </Link>
             </li>
+
             {/* <li>
               <Link to='/location'>
                 {' '}
                 <ion-icon name='location-outline' size="large"></ion-icon>
               </Link>
             </li> */}
-            <li>
-              <Link to='/search'>
-                {' '}
+
+            {/* <li>
+              <Link to="/search">
+                {" "}
                 <ion-icon name="search-outline" size="large"></ion-icon>
               </Link>
-            </li>
+            </li> */}
+
             <li>
-              <Link to='/about'>
-                {' '}
+              <Link to="/about">
+                {" "}
                 <ion-icon name="help-circle-outline" size="large"></ion-icon>
               </Link>
             </li>
+
             <li>
               <Link to={logInLink} onClick={checkIfLoggedIn}>
                 {" "}
