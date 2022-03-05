@@ -24,19 +24,32 @@ This app will assist users in finding their perfect rescue pet, in a similar sty
 
 ## User Story
 ```
-As an animal lover with room in my home and heart, 
-I want to see what rescue pets are available in my area 
-so that I can find my furever friend.
+AS someone who has love in my heart and room in my home for a new furry friend
+I WANT to see the different rescue pets in my area
+SO THAT I can research and decide who to bring home
+
+WHEN I swipe right on a pet
+THEN that pet is sent to my user profile page
+
+WHEN I swipe left on a pet
+THEN that pet is removed from the pool of candidates
+
+WHEN I go to my User Profile page
+THEN I have the ability to go to my right-swiped pets’ listings
+OR delete the pet from my pool
 ```
 
 ## Technologies
 This application was created using:
-- [Javascript](https://www.javascript.com/)
 - [apollo-server-express](https://www.npmjs.com/package/apollo-server-express)
 - [bootstrap](https://getbootstrap.com/docs/5.1/getting-started/introduction/)
+- [Canva](https://www.canva.com/)
 - [concurrently](https://www.npmjs.com/package/concurrently)
 - [graphQL](https://graphql.org/graphql-js/)
+- [heroku](https://www.heroku.com)
+- [Javascript](https://www.javascript.com/)
 - [jwt-decode](https://www.npmjs.com/package/jwt-decode)
+- [Leonardo](https://www.getleonardo.com/)
 - [pet-finder-api](https://www.npmjs.com/package/pet-finder-api)
 - [petfinder-js](https://www.npmjs.com/package/@petfinder/petfinder-js)
 - [react](https://www.npmjs.com/package/react)
@@ -44,15 +57,13 @@ This application was created using:
 - [react-tinder-card](https://www.npmjs.com/package/react-tinder-card)
 - [styled-components](https://www.npmjs.com/package/styled-components)
 - [web-vitals](https://www.npmjs.com/package/web-vitals)
-- [Canva](https://www.canva.com/)
-- [Leonardo](https://www.getleonardo.com/)
 
 ## Examples
-Check out [Fluffr](https://fluffr.herokuapp.com) <br>
-Photos of the homepage: <br>
-![Photo 1 Description](photolink) <br>
+Check out [Fluffr](https://fluffr.herokuapp.com) <br><br>
+Photos of the app: <br>
+![Landing Page](photolink) <br>
 
-![Photo 2 Description](photolink) <br>
+![Home Page](photolink) <br>
 
 ## Authors
 - [Kevin Ang](https://www.github.com/cosdaman)
