@@ -29,7 +29,7 @@ I WANT to see the different rescue pets in my area
 SO THAT I can research and decide who to bring home
 
 WHEN I swipe right on a pet
-THEN that pet is sent to my user profile page
+THEN that pet is sent to my User Profile page
 
 WHEN I swipe left on a pet
 THEN that pet is removed from the pool of candidates
