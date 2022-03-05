@@ -61,9 +61,9 @@ This application was created using:
 ## Examples
 Check out [Fluffr](https://fluffr.herokuapp.com) <br><br>
 Photos of the app: <br>
-![Landing Page](photolink) <br>
+![Landing Page](https://raw.githubusercontent.com/mteubnerfoster/fluffr/main/client/public/fluffr-landing.jpg) <br>
 
-![Home Page](photolink) <br>
+![Home Page](https://raw.githubusercontent.com/mteubnerfoster/fluffr/main/client/public/fluffr-home.jpg) <br>
 
 ## Authors
 - [Kevin Ang](https://www.github.com/cosdaman)
