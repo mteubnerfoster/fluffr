@@ -11,6 +11,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "engines": {
+    "node": "16.x"
+  },
   "dependencies": {
     "apollo-server-express": "^2.12.0",
     "bcrypt": "^5.0.0",
